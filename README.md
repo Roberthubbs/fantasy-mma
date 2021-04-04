@@ -4,7 +4,7 @@ DB is postgres with Sequlize ORM.
 
 fighter structure is:  
 
-   fightBooked: DataTypes.BOOLEAN,  
+    fightBooked: DataTypes.BOOLEAN,  
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     lastFight: DataTypes.DATE,
@@ -47,4 +47,7 @@ Fight stats structure is two tables for each fighter structured as (TODO: add fi
 Frontend is React/Redux (building out baseline functionality in React/Redux standard for speed purposes, hope to switch to toolkit/more functional components in the future)
 
 Available components right now is master fighters list (will need to add to local database ask for script to do so) and Fighter single component
+
+to install clone repo and npm install && cd client && npm install
+from top dir run npm start, client dir run yarn start
   
