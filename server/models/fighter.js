@@ -24,7 +24,11 @@ module.exports = (sequelize, DataTypes) => {
     lastWeight: DataTypes.STRING,
     secondWeight: DataTypes.STRING,
     thirdWeight: DataTypes.STRING,
-    teamId: DataTypes.INTEGER
+    teamId: DataTypes.INTEGER,
+    wins: DataTypes.INTEGER,
+    losses: DataTypes.INTEGER,
+    ranking: DataTypes.INTEGER,
+    nextOpponent: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Fighter',
