@@ -1,8 +1,10 @@
 # fantasy-mma
 Fantasy MMA league alpha project 
-DB is postgres with Sequlize ORM, 
-fighter structure is: 
-   fightBooked: DataTypes.BOOLEAN,
+DB is postgres with Sequlize ORM.  
+
+fighter structure is:  
+
+   fightBooked: DataTypes.BOOLEAN,  
     firstName: DataTypes.STRING,
     lastName: DataTypes.STRING,
     lastFight: DataTypes.DATE,
@@ -17,11 +19,13 @@ fighter structure is:
     losses: DataTypes.INTEGER,
     ranking: DataTypes.INTEGER,
     nextOpponent: DataTypes.STRING
-Fight structure is:
+Fight structure is:  
+
      fighterOne: DataTypes.INTEGER,
     fighterTwo: DataTypes.INTEGER,
     weightClass: DataTypes.STRING
-Fight stats structure is two tables for each fighter structured as (TODO: add fightID):
+Fight stats structure is two tables for each fighter structured as (TODO: add fightID):  
+
      fighterId: DataTypes.INTEGER,
     fightHappenedOn: DataTypes.DATE,
     takedownAttempted: DataTypes.INTEGER,
