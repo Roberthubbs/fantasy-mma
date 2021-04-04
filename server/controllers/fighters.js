@@ -8,24 +8,8 @@ router.post('/all', async(req, res) => {
     // fs.createReadStream('/Users/roberthubert/Desktop/mma-fantasy/csv-doc.csv')
     //     .pipe(csv())
     //     .on('data', async(row) => {
-    //        // console.log(row);
     //         let wins = ''
     //         let losses = '';
-    //        // recordArr = row.RECORD.split('')
-    //         // if (isNaN(recordArr[1])){
-    //         //     wins = parseInt(recordArr[0]);
-    //         //     losses = parseInt(recordArr[2]);
-    //         // } else {
-    //         //     let str = '';
-    //         //     str += recordArr[0];
-    //         //     str += recordArr[1];
-    //         //     wins = parseInt(str);
-    //         //     let lossStr = '';
-    //         //     lossStr += recordArr[2];
-    //         //     if (recordArr[3]){
-    //         //         lossStr += recordArr[3];
-    //         //     }
-    //         // }
     //         let seenDash = false
     //         for (let i = 0; i < row.RECORD.length; i++){
     //             if (isNaN(parseInt(row.RECORD[i]))){
@@ -55,7 +39,8 @@ router.post('/all', async(req, res) => {
     //             wins: parseInt(wins),
     //             losses: parseInt(losses),
     //             ranking: ranking,
-    //             nextOpponent: row.OPPONENT
+    //             nextOpponent: row.OPPONENT,
+    //             lastWeight: row.WEIGHTCLASS
     //         }
     //         console.log(fighterObject);
 
