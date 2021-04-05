@@ -1,4 +1,3 @@
-// import { findAndClearArticles } from './server/controllers/articles-controller';
 require('dotenv').config()
 const cors = require('cors')
 
@@ -10,6 +9,8 @@ const https = require('https');
 const db=require('./server/models/index');
 const app = express();
 const fightersController = require('./server/controllers/fighters');
+const playersController = require('./server/controllers/players-contoller.js');
+
 app.use((req, res, next) => {
     res.set({
         "Access-Control-Allow-Origin": "*",
@@ -22,7 +23,7 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(fightersController);
-
+app.use(playersController);
 
 const port = process.env.PORT || 5000;
 db.sequelize.sync().then(() => {
