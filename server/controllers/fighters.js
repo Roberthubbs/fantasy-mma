@@ -68,11 +68,23 @@ router.post('/all', async(req, res) => {
 
 router.post('/free-agents', async(req, res) => {
     try {
-        let fighters = await Fighter.findAll({where: {teamId: null}})
+        let fighters = await Fighter.findAll({where: {teamId: null}});
+        res.send(fighters);
     } catch (error) {
         res.send('Error finding free agents ', error)
     }
 
 });
+
+router.post('/all/weight-class/:weight', async(req, res) => {
+    let  { weight } = req.headers;
+    try {
+        let fighters = await Fighter.findAll({ where: { lastWeight: weight } });
+        res.send(fighters);
+    } catch(error) {
+        res.send('Error: Chael never lost a round', error);
+    }
+
+})
 
 module.exports = router;

@@ -12,7 +12,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <div>
-          
+          <div>
+            <header>
+              
+            </header>
+
+          </div>
           <Switch>
             <Route path='/all' component={Fighters} /> 
             <AuthRoute exact path="/register" component={RegisterContainer} />
