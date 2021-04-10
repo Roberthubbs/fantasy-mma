@@ -11,7 +11,7 @@ const mstp = (state) => {
 
 const mdtp = dispatch => ({
 
-    receiveAllFighters: () => dispatch(fetchAllFighters())
+    receiveAllFighters: (selectedWeightClass) => dispatch(fetchAllFighters(selectedWeightClass))
 })
 
 export default connect(mstp, mdtp)(Fighters);

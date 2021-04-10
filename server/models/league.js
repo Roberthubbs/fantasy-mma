@@ -18,7 +18,8 @@ module.exports = (sequelize, DataTypes) => {
     leagueStartDate: DataTypes.DATE,
     leagueEndDate: DataTypes.DATE,
     eventTotal: DataTypes.INTEGER,
-    playerTotal: DataTypes.STRING
+    playerTotal: DataTypes.STRING,
+    teamId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'League',

@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const csv = require('csv-parser');
 const fs = require('fs');
-const  { Fighter } = require('../models');
+const { Fighter, LeagueFighter } = require('../models');
 
 router.post('/all', async(req, res) => {
     // fs.createReadStream('/Users/roberthubert/Desktop/mma-fantasy/csv-doc.csv')
@@ -57,8 +57,17 @@ router.post('/all', async(req, res) => {
     //         console.log('CSV file successfully processed');
     //     })
     //     .catch((err) => console.log(err));
+    debugger;
+    let arr = Object.keys(req.body);
+    let selectedWeightClass = arr[0];
+    console.log(selectedWeightClass);
+    let fighters
     try {
-        let fighters = await Fighter.findAll({raw: true});
+        if (selectedWeightClass === 'All'){
+            fighters = await Fighter.findAll({ raw: true });
+        } else {
+            fighters = await Fighter.findAll({where: {lastWeight: selectedWeightClass}}, {raw: true});
+        }
         res.send(fighters)
     } catch (error){
         res.send('Error finding all fighters ', error)
@@ -66,9 +75,11 @@ router.post('/all', async(req, res) => {
 
 });
 
-router.post('/free-agents', async(req, res) => {
+router.get('/free-agents/:leagueId', async(req, res) => {
+    let currLeague = req.params.leagueId;
+  
     try {
-        let fighters = await Fighter.findAll({where: {teamId: null}});
+        let fighters = await LeagueFighter.findFreeAgents(currLeague);//sequelize.query(`SELECT * FROM "Fighters" where "id" not in (Select fighterId from "LeagueFighter" a where a."leagueId" = ${currLeague})`, {raw: true});
         res.send(fighters);
     } catch (error) {
         res.send('Error finding free agents ', error)
@@ -85,6 +96,26 @@ router.post('/all/weight-class/:weight', async(req, res) => {
         res.send('Error: Chael never lost a round', error);
     }
 
-})
+});
+
+
+router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
+    let { fighterId, teamId, leagueId } = req.params;
+    console.log(fighterId, teamId, leagueId);
+    try {
+        let fighter = await LeagueFighter.findOne({where: {fighterId: fighterId, leagueId: leagueId}});
+        console.log(fighter)
+        if (fighter ){
+            res.send(body);
+            return;
+        }
+        await LeagueFighter.create({fighterId: fighterId, teamId: teamId, leagueId: leagueId});
+        let fighters = await LeagueFighter.findAll({where: {leagueId: leagueId, teamId: teamId}});
+        res.send(fighters);
+    } catch(error){
+        res.send('Error adding fighter', error);
+    }
+
+});
 
 module.exports = router;

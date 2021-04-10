@@ -1,32 +1,32 @@
 import React from 'react';
 import Fighter from './fighter';
-class Fighters extends React.Component {
+export default class FreeAgents extends React.Component {
     constructor(props){
         super(props);
         this.state = {
-            fighters: this.props.fighters,
-            weight: ['HW','LHW','MW','WW','LW','FW','BW','FLW','WBW','WFLW','WSW'],
-            selectedWeightClass: 'All'
+            fighters: this.props.fighters
         }
-        this.dropDownChange = this.dropDownChange.bind(this);
+        
     }
     componentDidMount(){
-        this.props.receiveAllFighters(this.state.selectedWeightClass)
+        this.props.fetchAllFreeAgents(this.props.leagueId);
     }
     componentDidUpdate(prevProps){
+        console.log(prevProps, "prevProps");
+        console.log(this.props, "props");
+       
+        if (prevProps.match.params.leagueId !== this.props.leagueId){
+            this.props.fetchAllFreeAgents(this.props.leagueId);
+        }
+
         if (prevProps.fighters != this.props.fighters){
             this.setState({fighters: this.props.fighters})
         }
     }
-    dropDownChange(event) {
-        debugger;
-        this.props.receiveAllFighters(event.target.value);
-
-        this.setState({ selectedWeightClass: event.currentTarget.value })
-        //console.log(this.state.selectedWeightClass);
-       
-    }
-    
+    // handleClick(e, fighterId){
+    //     e.preventDefault();
+    //     this.props.addFreeAgent()
+    // }
     render(){
         if (!this.state.fighters){
             return(
@@ -38,17 +38,8 @@ class Fighters extends React.Component {
         }
         return (
             <div>
-                All Fighters:
-                <div>
-                    Choose Weight Class:
-                    <br />
-                    <select name="Max Players in League" value={this.state.selectedWeightClass} onChange={this.dropDownChange} id="">
-                        {this.state.weight.map((listVal) => (
-                            <option value={listVal}>{listVal}</option>
-                        ))}
-
-                    </select>
-                </div>
+                Free Agents:
+                
                 <div>{this.state.fighters.map((fighter, i) => (
                 //    <li> <div>
                 //             {/* <h2>{fighter.firstName} {fighter.lastName} #{fighter.ranking}</h2>
@@ -59,7 +50,7 @@ class Fighters extends React.Component {
                 //         </div>
                 //     </li>
                     //console.log(fighter.id)
-                   
+                    <button onClick={(() => this.props.addFreeAgent(this.props.leagueId, this.props.teamId, fighter.id))}>
                     <Fighter
                         key={i}
                         firstName={fighter.firstName}
@@ -70,6 +61,8 @@ class Fighters extends React.Component {
                         losses={fighter.losses}
                     />
                     
+                </button>
+                    
                     
                 ))}
                 </div>
@@ -78,4 +71,3 @@ class Fighters extends React.Component {
     }
 
 }
-export default Fighters;

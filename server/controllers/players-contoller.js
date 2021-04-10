@@ -8,7 +8,7 @@ router.post('/register', async (req, res) => {
 
     const { username, password  } = req.body
     console.log('Made into register')
-    debugger;
+    
     const hash = bcrypt.hashSync(password, 10);
     console.log(username);
     console.log(password);
