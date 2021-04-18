@@ -1,5 +1,5 @@
 import * as FighterUtils from '../utils/fighter-utils';
-
+import * as AuctionActions from './auction-actions';
 export const RECEIVE_ALL_FIGHTERS = "RECEIVE_ALL_FIGHTERS";
 export const RECEIVE_ALL_FREE_AGENTS = "RECEIVE_ALL_FREE_AGENTS";
 export const ADD_FREE_AGENTS = "ADD_FREE_AGENTS";
@@ -28,14 +28,14 @@ export const fetchAllFighters = (selectedWeightClass) => dispatch => (
     })
 );
 
-export const fetchAllFreeAgents = (leagueId) => dispatch => (
-    FighterUtils.receiveAllFreeAgents(leagueId).then((fighters) => {
+export const fetchAllFreeAgents = (leagueId, weightClass) => dispatch => (
+    FighterUtils.receiveAllFreeAgents(leagueId, weightClass).then((fighters) => {
         dispatch(receiveAllFreeAgents(fighters));
     })
 );
 
-export const addToRoster = (fighterId, teamId, leagueId, cost) => dispatch => (
-    FighterUtils.addFreeAgents(fighterId, teamId, leagueId, cost).then((fighters) => {
-        dispatch(receiveAllFighters(fighters));
+export const addToRoster = (fighterId, leagueId, teamId, cost) => dispatch => (
+    FighterUtils.addFreeAgents(fighterId, leagueId, teamId, cost).then((fighters) => {
+        dispatch(AuctionActions.fetchAllBids(fighters));
     })
 )

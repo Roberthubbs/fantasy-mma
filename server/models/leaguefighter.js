@@ -23,6 +23,14 @@ module.exports = (sequelize, DataTypes) => {
     
     
   }
+  LeagueFighter.findFreeAgentsByWeight = async function(leagueId, weightClass){
+    try {
+      let fighters = await sequelize.query(`SELECT * FROM "Fighters" zz where zz."id" not in (Select "fighterId" from "LeagueFighters" a where a."leagueId" = ${leagueId}) and zz."lastWeight" = '${weightClass}'`);
+      return fighters[0];
+    } catch (error) {
+      return error;
+    }
+  }
 
 
   LeagueFighter.init({

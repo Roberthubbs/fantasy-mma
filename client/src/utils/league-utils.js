@@ -13,3 +13,10 @@ export const addLeague = async(leagueName, teamId, maxPlayerCount, leagueStartDa
         headers: allHeaders
     })
 }
+
+export const fetchBids = async(leagueId) => {
+    return await axios.request(`/league-auction/${leagueId}`, {
+        method: "post",
+        headers: allHeaders
+    })
+}

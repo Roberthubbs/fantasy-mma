@@ -6,6 +6,7 @@ const fightersReducer = (state = {}, action) => {
         case RECEIVE_ALL_FIGHTERS:
             return merge({}, action.fighters.data);
         case RECEIVE_ALL_FREE_AGENTS:
+            debugger;
             return merge({}, action.fighters.data);
         default:
             return state;

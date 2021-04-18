@@ -5,7 +5,8 @@ import Fighters from './components/fighters/all-fighters-container';
 import FreeAgents from './components/fighters/free-agent-container';
 import LoginContainer from './components/login-container';
 import RegisterContainer from './components/sign-up-container';
-import CreateLeague from './components/league/create-league-container'
+import CreateLeague from './components/league/create-league-container';
+import LeagueAuction from './components/league/league-action-container';
 import { AuthRoute } from './utils/route-util';
 //import React, { Component } from 'react'
 
@@ -60,7 +61,7 @@ function App(props) {
       
         <div>
           
-            <header>             
+            <header className="app-header">             
             
                 {getLinksMenu()}
                 {getLeagueActions()}
@@ -73,7 +74,7 @@ function App(props) {
             <Route path='/all' component={Fighters} /> 
             <Route path='/free-agents/:leagueId' component={FreeAgents} />
             <Route path='/create-league' component={CreateLeague} />
-
+            <Route path='/league-auction/:leagueId' component={LeagueAuction}/>
             <AuthRoute exact path="/register" component={RegisterContainer} />
             <AuthRoute exact path="/login" component={LoginContainer} />
           </Switch>

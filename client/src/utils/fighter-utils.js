@@ -12,19 +12,22 @@ export const receiveAll = async (selectedWeightClass) => {
     });
 }
 
-export const receiveAllFreeAgents = async(leagueId) => {
+export const receiveAllFreeAgents = async(leagueId, weightClass) => {
     
     return await axios.request(`/free-agents/${leagueId}`,{
         headers: allHeaders,
-        method: "get"
+        method: "post",
+        data: {weightClass}
     });
 }
 
 export const addFreeAgents = async(fighterId, leagueId, teamId, cost) => {
-
+    debugger;
     return await axios.request(`/add-fighter/${fighterId}/${teamId}/${leagueId}`, {
         method: "post",
-        data: cost,
+        data: {
+            cost
+        },
         headers: allHeaders
     })
 }

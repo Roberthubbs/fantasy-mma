@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { League } = require("../models");
+const { League, LeagueAuction } = require("../models");
 
 
 router.post('/create-league', async(req, res) => {
@@ -17,6 +17,17 @@ router.post('/create-league', async(req, res) => {
         }
     } else {
         res.send('More Information Required');
+    }
+});
+
+router.post('/league-auction/:leagueId', async(req,res) => {
+    let { leagueId } = req.params;
+
+    try{
+        let currAuction = await LeagueAuction.getCurrentAuction(leagueId)//findAll({ where: { leagueId: leagueId } });
+        res.status(200).json(currAuction);
+    } catch (error){
+        res.status(400).json({error: error})
     }
 });
 

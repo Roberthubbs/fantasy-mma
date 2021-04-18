@@ -42,7 +42,7 @@ class Fighters extends React.Component {
                 <div>
                     Choose Weight Class:
                     <br />
-                    <select name="Max Players in League" value={this.state.selectedWeightClass} onChange={this.dropDownChange} id="">
+                    <select name="Max Players in League" value={this.state.weightClass} onChange={this.dropDownChange} id="">
                         {this.state.weight.map((listVal) => (
                             <option value={listVal}>{listVal}</option>
                         ))}
