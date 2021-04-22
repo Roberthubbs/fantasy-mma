@@ -75,7 +75,7 @@ module.exports = (sequelize, DataTypes) => {
   Player.calculateWaiver = async function (teamId, cost) {
     try {
       let playerWaiver = await sequelize.query(`SELECT "waiverLeft" FROM "Players" zz where zz."id" = ${teamId}`, {raw: true});
-      debugger;
+      //debugger;
       console.log(playerWaiver[0].waiverLeft)
       return playerWaiver[0].waiverLeft;
     } catch (error) {

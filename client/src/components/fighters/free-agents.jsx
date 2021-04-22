@@ -35,7 +35,7 @@ export default class FreeAgents extends React.Component {
         this.setState({cost: e.target.value})
     }
     dropDownChange(event) {
-        debugger;
+        //debugger;
         this.props.fetchAllFreeAgents(this.props.leagueId, event.currentTarget.value);
 
         this.setState({ weightClass: event.currentTarget.value })

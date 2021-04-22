@@ -4,9 +4,10 @@ const fightersReducer = (state = {}, action) => {
     Object.freeze(state);
     switch (action.type){
         case RECEIVE_ALL_FIGHTERS:
+            //debugger;
             return merge({}, action.fighters.data);
         case RECEIVE_ALL_FREE_AGENTS:
-            debugger;
+            //debugger;
             return merge({}, action.fighters.data);
         default:
             return state;

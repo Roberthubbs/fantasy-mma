@@ -24,5 +24,21 @@ module.exports = (sequelize, DataTypes) => {
     sequelize,
     modelName: 'League',
   });
+
+  League.getAllLeagues = async(str) => {
+    //debugger;
+    try {
+      let allLeague = await sequelize.query(`
+      SELECT "leagueIdString", "teamId", "id" from "Leagues" 
+      where lower("leagueIdString") like lower('%${str}%')
+    `, { raw: true });
+      
+      //debugger;
+      return allLeague[0];
+    } catch(error) {
+      return error;
+    }
+    
+  }
   return League;
 };

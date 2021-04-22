@@ -4,6 +4,10 @@
   background-color: whitesmoke;
   
 }
+.general-link-class{
+  text-decoration: none;
+  /* padding: 10%; */
+}
 
 /* .App-logo {
   height: 40vmin;

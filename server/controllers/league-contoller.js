@@ -1,12 +1,13 @@
 const express = require('express');
 const router = express.Router();
-const { League, LeagueAuction } = require("../models");
+const { League, LeagueAuction, UserLeague, JoinLeagueRequest } = require("../models");
+const { Op } = require("sequelize");
 
 
 router.post('/create-league', async(req, res) => {
     let { leagueName, teamId, maxPlayerCount, leagueStartDate, leagueEndDate, eventTotal } = req.body;
     console.log(req.body);
-    //debugger;
+    ////debugger;
     if (leagueName  && maxPlayerCount && leagueStartDate && leagueEndDate && teamId){
         try {
             let leagueCreate = await League.create({ leagueIdString: leagueName, teamId: teamId, playerTotal: maxPlayerCount, leagueStartDate: leagueStartDate, leagueEndDate: leagueEndDate, eventTotal: eventTotal  });
@@ -30,6 +31,46 @@ router.post('/league-auction/:leagueId', async(req,res) => {
         res.status(400).json({error: error})
     }
 });
+
+
+router.get(`/league-auction/:userId&leagueName=:leagueName`, async(req, res) => {
+    let { userId, leagueName} = req.params;
+    //debugger;
+    try {
+        let league = await UserLeague.findOne({ where: { leagueName: leagueName, teamId: userId}});
+        res.status(200).json(league);
+    } catch (error){
+        res.status(400).json({error: error});
+    }
+});
+
+router.get(`/all-leagues/:leagueName`, async(req, res) => {
+    let {leagueName} = req.params;
+    let lowered = leagueName.toLowerCase();
+    try {
+        let leagues = await League.getAllLeagues(lowered)
+        res.status(200).json(leagues)
+    } catch (error){
+        res.status(400).json({error: error})
+    }
+})
+
+router.post(`/join-league`, async(req,res) => {
+    let {userId, leagueName, leagueId, adminId, requestMessage} = req.body;
+    // requesterId: DataTypes.INTEGER,
+    //     leagueOwnerId: DataTypes.INTEGER,
+    //         leagueNameString: DataTypes.STRING,
+    //             requestMessage: DataTypes.STRING,
+    //                 waitingApproval: DataTypes.BOOLEAN,
+    //                     approved: DataTypes.BOOLEAN,
+    //                         denied: DataTypes.BOOLEAN
+    //debugger;
+    try {
+        let league = await JoinLeagueRequest.create({ requesterId: userId, leagueOwnerId: adminId, leagueNameString: leagueName, waitingApproval: true, requestMessage: requestMessage})
+    } catch(error) {
+        res.status(400).send(error)
+    }
+})
 
 
 module.exports = router;

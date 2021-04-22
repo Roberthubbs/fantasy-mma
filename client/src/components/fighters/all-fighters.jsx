@@ -19,7 +19,7 @@ class Fighters extends React.Component {
         }
     }
     dropDownChange(event) {
-        debugger;
+        //debugger;
         this.props.receiveAllFighters(event.target.value);
 
         this.setState({ selectedWeightClass: event.currentTarget.value })

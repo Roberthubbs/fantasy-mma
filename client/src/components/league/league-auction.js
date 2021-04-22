@@ -16,7 +16,7 @@ export default class LeagueAuction extends Component {
     componentDidMount(){
         console.log(this.props);
         if(this.state.callRefresh){
-          //  debugger;
+          //  //debugger;
             this.setState({callRefresh: false});
             this.props.fetchAllBids(this.props.leagueId).then((res) => {
                 console.log(this.props, 'props');

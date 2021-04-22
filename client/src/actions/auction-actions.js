@@ -1,5 +1,5 @@
 import * as LeagueUtils from '../utils/league-utils';
-export const RECEIVE_ALL_BIDS = "RECEIVE_ALL_FIGHTERS";
+export const RECEIVE_ALL_BIDS = "RECEIVE_ALL_BIDS";
 
 export const receiveCurrentAuction = bids => ({
     type: 'RECEIVE_ALL_BIDS',

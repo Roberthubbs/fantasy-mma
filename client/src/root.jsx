@@ -1,11 +1,12 @@
-import React from 'react'
+import React, { useContext }  from 'react'
 import { Provider } from 'react-redux';
 import { HashRouter } from 'react-router-dom';
-import App from './App';
+import App from './App-container';
+
 const Root = ({ store }) => 
 {
-    console.log(store, "store");
-    //debugger;
+    ////debugger;
+    
     return (
         <Provider store={store} >
             <HashRouter>

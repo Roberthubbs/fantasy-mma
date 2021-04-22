@@ -57,9 +57,9 @@ router.post('/all', async(req, res) => {
     //         console.log('CSV file successfully processed');
     //     })
     //     .catch((err) => console.log(err));
-    debugger;
-    let arr = Object.keys(req.body);
-    let selectedWeightClass = arr[0];
+    //debugger;
+    let {selectedWeightClass} = req.body;
+    //let selectedWeightClass = arr[0];
     console.log(selectedWeightClass);
     let fighters
     try {
@@ -130,7 +130,7 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
   //      await LeagueFighter.create({fighterId: fighterId, teamId: teamId, leagueId: leagueId});
   //      let fighters = await LeagueFighter.findAll({where: {leagueId: leagueId, teamId: teamId}});
         let auction = await LeagueAuction.findAll({where: {leagueId: leagueId}});
-        debugger;
+        //debugger;
         res.status(200).json(auction);
     } catch(error){
         res.send('Error adding fighter', error);

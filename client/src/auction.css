@@ -39,11 +39,22 @@
 }
 .auction-to-fa{
     border: 2px solid black;
-    padding: 4px;
+    padding: 10px;
+    border-top-right-radius: 15%;
+    border-bottom-right-radius: 15%;
+
 }
 .auction-side-bar{
     min-width: 80px;
     position:relative;
     margin-right: 20px;
     margin-left: 0;
+}
+.fa-link{
+  text-decoration: none;
+  color:rgb(233, 154, 7);
+    font-weight: bold;
+}
+.auction-to-fa:hover{
+    padding: 12px;
 }

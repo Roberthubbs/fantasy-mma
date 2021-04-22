@@ -6,8 +6,8 @@ const leagueReducer = (state = {}, action) => {
     console.log(action);
     switch (action.type) {
         case RECEIVE_LEAGUE:
-           // debugger;
-            return merge({}, state, {[action.data.id]: action.data});
+            //debugger;
+            return merge({}, state, action.data);
         default:
             return state;
     }

@@ -3,10 +3,10 @@ import { RECEIVE_ALL_BIDS } from '../actions/auction-actions';
 const auctionReducer = (state = {}, action) => {
     Object.freeze(state);
     console.log('inside reducer')
-    console.log(action);
+    
     switch (action.type) {
         case RECEIVE_ALL_BIDS:
-            debugger;
+            //debugger;
             return merge({}, action.bids.data);
         default:
             return state;
