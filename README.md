@@ -24,7 +24,7 @@ Fight structure is:
      fighterOne: DataTypes.INTEGER,
     fighterTwo: DataTypes.INTEGER,
     weightClass: DataTypes.STRING
-Fight stats structure is two tables for each fighter structured as (TODO: add fightID):  
+Fight stats structure is table fighter structured as (TODO: add fightID):  
 
      fighterId: DataTypes.INTEGER,
     fightHappenedOn: DataTypes.DATE,
@@ -44,6 +44,13 @@ Fight stats structure is two tables for each fighter structured as (TODO: add fi
     lostBySub: DataTypes.BOOLEAN,
     lostByKO: DataTypes.BOOLEAN,
     lost: DataTypes.BOOLEAN
+
+
+Currently there is also Notifications, League Join Requests, UserLeague, LeagueFighter tables and more.  
+
+Immediate todos are: styling, scraping statistics, and locking down owners league behaviors, such as the auction behavior.
+
+
 Frontend is React/Redux (building out baseline functionality in React/Redux standard for speed purposes, hope to switch to toolkit/more functional components in the future)
 
 Available components right now is master fighters list (will need to add to local database ask for script to do so) and Fighter single component
