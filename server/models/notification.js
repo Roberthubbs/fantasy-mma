@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     senderId: DataTypes.INTEGER,
     receiverId: DataTypes.INTEGER,
     seen: DataTypes.BOOLEAN,
-    responded: DataTypes.BOOLEAN
+    responded: DataTypes.BOOLEAN,
+    requestId: DataTypes.INTEGER
   }, {
     sequelize,
     modelName: 'Notification',

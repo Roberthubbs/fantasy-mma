@@ -63,7 +63,8 @@ router.post(`/join-league`, async(req,res) => {
     //             responded: DataTypes.BOOLEAN
     try {
         let league = await JoinLeagueRequest.create({ requesterId: userId, leagueOwnerId: adminId, leagueNameString: leagueName, waitingApproval: true, requestMessage: requestMessage});
-        let notification = await Notification.create({type: 1, typeString: 'LeagueJoinRequest', senderId: userId, receiverId: adminId, seen:false, responded:false});
+        debugger;
+        let notification = await Notification.create({type: 1, typeString: 'LeagueJoinRequest', senderId: userId, receiverId: adminId, seen:false, responded:false, requestId: league.dataValues.id});
     } catch(error) {
         res.status(400).send(error)
     }
