@@ -1,7 +1,6 @@
 import React, { useState, Component } from 'react';
 import SelectedLeague from './selected-league';
-import TextField from '@material-ui/core/TextField';
-import Autocomplete from '@material-ui/lab/Autocomplete';
+
 
 export default class JoinLeagueRequest extends Component{
     constructor(props){
@@ -76,10 +75,14 @@ export default class JoinLeagueRequest extends Component{
             ) 
         } else {
             return (
-                <SelectedLeague
-                    selectedLeague={this.state.selectedLeague}
-                    joinLeague={this.props.slr}
-                />
+                <div className='outer-selected-league-div'>
+                    <SelectedLeague
+                        selectedLeague={this.state.selectedLeague}
+                        joinLeague={this.props.slr}
+                        return='/join-league'
+                    />
+                    <button onClick={() => this.setState({ selectedLeague: { leagueName: '', leagueId: null, adminId: null }})} className='clear-selected-btn'>Clear Selection</button>
+                </div>
             )
             
         }

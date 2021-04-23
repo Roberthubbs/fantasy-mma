@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { League, LeagueAuction, UserLeague, JoinLeagueRequest } = require("../models");
+const { League, LeagueAuction, UserLeague, JoinLeagueRequest, Notification } = require("../models");
 const { Op } = require("sequelize");
 
 
@@ -57,16 +57,13 @@ router.get(`/all-leagues/:leagueName`, async(req, res) => {
 
 router.post(`/join-league`, async(req,res) => {
     let {userId, leagueName, leagueId, adminId, requestMessage} = req.body;
-    // requesterId: DataTypes.INTEGER,
-    //     leagueOwnerId: DataTypes.INTEGER,
-    //         leagueNameString: DataTypes.STRING,
-    //             requestMessage: DataTypes.STRING,
-    //                 waitingApproval: DataTypes.BOOLEAN,
-    //                     approved: DataTypes.BOOLEAN,
-    //                         denied: DataTypes.BOOLEAN
-    //debugger;
+    // senderId: DataTypes.INTEGER,
+    //     receiverId: DataTypes.INTEGER,
+    //         seen: DataTypes.BOOLEAN,
+    //             responded: DataTypes.BOOLEAN
     try {
-        let league = await JoinLeagueRequest.create({ requesterId: userId, leagueOwnerId: adminId, leagueNameString: leagueName, waitingApproval: true, requestMessage: requestMessage})
+        let league = await JoinLeagueRequest.create({ requesterId: userId, leagueOwnerId: adminId, leagueNameString: leagueName, waitingApproval: true, requestMessage: requestMessage});
+        let notification = await Notification.create({type: 1, typeString: 'LeagueJoinRequest', senderId: userId, receiverId: adminId, seen:false, responded:false});
     } catch(error) {
         res.status(400).send(error)
     }

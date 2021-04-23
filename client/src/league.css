@@ -1,0 +1,42 @@
+.selected-league{
+    display: flex;
+    flex-direction: column;
+    padding: 3% 10% 0 10%;
+}
+.outer-selected-league-div{
+    padding-bottom: 10%;
+}
+.selected-league-top{
+
+}
+.selected-league-bottom{
+
+}
+.selected-league-text-head{
+
+}
+.selected-league-text{
+    width: 50%;
+    min-height: 60px;
+}
+.selected-league-button{
+    width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    height: 50px;
+    font-size: 18px;
+        background-color: rgb(233, 154, 7, .9);
+            border-radius: 10%;
+
+
+}
+.clear-selected-btn{
+    width: 250px;
+    margin-top: 10px;
+    height: 50px;
+    font-size: 18px;
+    background-color: rgb(233, 154, 7, .9);
+    border-radius: 10%;
+}
