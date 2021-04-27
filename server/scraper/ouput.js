@@ -1,0 +1,3 @@
+async    
+    let fight = ['win                                        Gerald Meerschaert                                                Bartosz Fabinski                                              0                                  0                                        8                                  6                                  0                                  1                                  1                                  0                  Middleweight                                      SUB              Guillotine Choke              1              2:00']
+    console.log(fight[0].trim());

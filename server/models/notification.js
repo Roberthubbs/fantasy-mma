@@ -20,10 +20,27 @@ module.exports = (sequelize, DataTypes) => {
     receiverId: DataTypes.INTEGER,
     seen: DataTypes.BOOLEAN,
     responded: DataTypes.BOOLEAN,
-    requestId: DataTypes.INTEGER
+    requestId: DataTypes.INTEGER,
+    joinLeagueRequestId: DataTypes.INTEGER,
+    tradeRequestId: DataTypes.INTEGER,
+    waiverOutBidId: DataTypes.INTEGER,
+    waiverWonId: DataTypes.INTEGER,
+
   }, {
     sequelize,
     modelName: 'Notification',
   });
+
+  Notification.getUserNotifs = async(userId) => {
+    let notifications = await sequelize.query(`
+      SELECT "Notifications"."id" as notificationId, "type", "senderId" as senderId, "username" as senderName, "requestMessage", "JoinLeagueRequests"."createdAt"
+        FROM "Notifications"
+        INNER JOIN "Players" on "Players"."id" = "Notifications"."senderId"
+        INNER JOIN "JoinLeagueRequests" on "JoinLeagueRequests"."id" = "Notifications"."requestId"
+        where "Notifications"."receiverId" = ${userId}
+    `, {raw: true});
+    debugger;
+    return notifications[0];
+  }
   return Notification;
 };

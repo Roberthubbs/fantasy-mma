@@ -40,3 +40,30 @@
     background-color: rgb(233, 154, 7, .9);
     border-radius: 10%;
 }
+.league-request-noti-view{
+    border-bottom: 1px solid lightskyblue;
+    background-color: rgba(213, 233, 246, 0.466);
+    padding-top: 5px;
+    padding-bottom:5px;
+     margin-left: 100px;
+    padding-left: 100px;
+    margin-right: 100px;
+    padding-right:100px;
+}
+.notifications-header{
+    border: 1px solid rgb(233, 154, 7, .9);
+    margin-bottom: 0px;
+    padding: 8px;
+    background-color: rgba(248, 216, 158, 0.9);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    color: rgba(187, 145, 6, 0.9);
+    margin-left: 100px;
+    padding-left: 100px;
+    margin-right: 100px;
+    padding-right:100px;
+
+}
+.notif-header-span{
+    text-align:start;
+}

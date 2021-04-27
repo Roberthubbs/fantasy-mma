@@ -138,4 +138,13 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
 
 });
 
+
+const StoreFighters = async(arr)=> {
+    for (let i = 0; i < arr.length; i++){
+        let st = arr[i];
+        let fighter = {
+            
+        }
+    }
+}
 module.exports = router;

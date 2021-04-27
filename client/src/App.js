@@ -11,6 +11,7 @@ import RegisterContainer from './components/sign-up-container';
 import CreateLeague from './components/league/create-league-container';
 import LeagueAuction from './components/league/league-action-container';
 import JoinLeagueRequest from './components/league/join-league-container';
+import Notifications from './components/notifications/notification-container';
 import { AuthRoute } from './utils/route-util';
 
 import leagueReducer from './reducers/league-reducer';
@@ -74,7 +75,7 @@ function App(props) {
   return (
     <div className="App">
       
-        <div>
+       
           
             <header className="app-header">             
             
@@ -83,14 +84,14 @@ function App(props) {
               <Link to="/all" className='general-link-class'>All Fighters</Link>
             </header>
        
-          </div>
+        
           <div>
           <Switch>
             <Route path='/all' component={Fighters} /> 
             <Route path='/free-agents/:leagueId' component={FreeAgents} />
             <Route path='/create-league' component={CreateLeague} />
             <Route path='/join-league' component={JoinLeagueRequest} />
-
+            <Route path='/notifications' component={Notifications} />
             <Route path='/league-auction/:leagueId' component={LeagueAuction}/>
             <AuthRoute exact path="/register" component={RegisterContainer} />
             <AuthRoute exact path="/login" component={LoginContainer} />
