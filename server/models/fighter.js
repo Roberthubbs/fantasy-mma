@@ -28,7 +28,8 @@ module.exports = (sequelize, DataTypes) => {
     wins: DataTypes.INTEGER,
     losses: DataTypes.INTEGER,
     ranking: DataTypes.INTEGER,
-    nextOpponent: DataTypes.STRING
+    nextOpponent: DataTypes.STRING,
+    fullName: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'Fighter',

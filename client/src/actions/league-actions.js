@@ -2,6 +2,8 @@ import * as LeagueUtils from '../utils/league-utils';
 
 export const RECEIVE_LEAGUE = "RECEIVE_LEAGUE";
 export const RECEIVE_LEAGUE_ERROR = "RECEIVE_LEAGUE_ERROR";
+export const RECEIVE_USER_LEAGUES = "RECEIVE_USER_LEAGUES";
+
 export const receiveLeague = datum => {
     ////debugger;
     let {data} = datum
@@ -9,12 +11,17 @@ export const receiveLeague = datum => {
     
         type: RECEIVE_LEAGUE,
         data
-}}
+}};
+export const receiveUsersLeagues = userLeagues => ({
+    type: RECEIVE_USER_LEAGUES,
+    userLeagues
+})
 
 export const receiveErrors = errors => ({
     type: RECEIVE_LEAGUE_ERROR,
     errors
 });
+
 
 export const createLeague = (leagueName, teamId, maxPlayerCount, leagueStartDate, leagueEndDate, eventTotal) => dispatch =>(
     LeagueUtils.addLeague(leagueName, teamId, maxPlayerCount, leagueStartDate, leagueEndDate, eventTotal).then((league) => (
@@ -36,3 +43,10 @@ export const slr = (userId, leagueName, leagueId, teamId, requestMessage) => dis
     LeagueUtils.sendLeagueJoinRequest(userId, leagueName, leagueId, teamId, requestMessage)
 )
 
+export const getAllUserLeagues = (userId) => dispatch => (
+    LeagueUtils.userLeaguesSelection(userId).then((leagues) => (
+        dispatch(receiveUsersLeagues(leagues), err => (
+            dispatch(receiveErrors(err))
+        ))
+    ))
+)

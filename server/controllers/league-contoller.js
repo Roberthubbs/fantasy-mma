@@ -70,5 +70,16 @@ router.post(`/join-league`, async(req,res) => {
     }
 })
 
+router.get(`/user/leagues/:userId`, async(req, res) => {
+    let { userId } = req.params;
+    debugger;
+    try {
+        let leagues = await UserLeague.findAll({where: { teamId: userId}});
+        debugger;
 
+        res.status(200).json(leagues);
+    } catch (error){
+        res.status(400).json(error);
+    }
+})
 module.exports = router;

@@ -20,15 +20,16 @@ module.exports = (sequelize, DataTypes) => {
     auctionStartDate: DataTypes.DATE,
     auctionEndDate: DataTypes.DATE,
     fighterId: DataTypes.INTEGER,
-    bidCost: DataTypes.INTEGER
+    bidCost: DataTypes.INTEGER,
+    replacementFighterId: DataTypes.INTEGER
   }, {
     
     sequelize,
     modelName: 'LeagueAuction',
   });
-  LeagueAuction.getCurrentAuction = async(leagueId) => {
+  LeagueAuction.getCurrentAuction = async(leagueId, from) => {
     try {
-      let currentAuction = await sequelize.query(`SELECT "fighterId", "bidCost", "bidTime", "leagueId", a."teamId", "firstName", "lastName", "lastWeight", "nextOpponent", (SELECT c."username" from "Players" as c where c."id" = a."teamId") as "usernameOfBidder" 
+      let currentAuction = await sequelize.query(`SELECT a."id" as "bidId","fighterId", "bidCost", "bidTime", "leagueId", a."teamId", "firstName", "lastName", "lastWeight", "nextOpponent", (SELECT c."username" from "Players" as c where c."id" = a."teamId") as "usernameOfBidder" 
     
       from "LeagueAuctions" as a
       INNER JOIN "Fighters" on (a."fighterId" = "Fighters"."id")
@@ -53,7 +54,13 @@ module.exports = (sequelize, DataTypes) => {
         })
       })
 
-      return currentAuction[0];
+      console.log(JSON.stringify(currentAuction[0]), 'in auction');
+      if (from == 'roster'){
+        return JSON.stringify(currentAuction[0])
+      } else {
+        return currentAuction[0];
+
+      }
     } catch (error) {
       return error;
     }

@@ -1,5 +1,5 @@
 import merge from 'lodash/merge';
-import { RECEIVE_LEAGUE } from '../actions/league-actions';
+import { RECEIVE_LEAGUE, RECEIVE_USER_LEAGUES } from '../actions/league-actions';
 const leagueReducer = (state = {}, action) => {
     Object.freeze(state);
     console.log('inside reducer')
@@ -8,6 +8,9 @@ const leagueReducer = (state = {}, action) => {
         case RECEIVE_LEAGUE:
             //debugger;
             return merge({}, state, action.data);
+        case RECEIVE_USER_LEAGUES:
+            debugger;
+            return merge({}, action.userLeagues.data);
         default:
             return state;
     }

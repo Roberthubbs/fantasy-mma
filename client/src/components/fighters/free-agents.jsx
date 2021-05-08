@@ -1,5 +1,7 @@
 import React from 'react';
 import Fighter from './fighter';
+import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+
 export default class FreeAgents extends React.Component {
     constructor(props){
         super(props);
@@ -88,12 +90,23 @@ export default class FreeAgents extends React.Component {
                             wins={fighter.wins}
                             losses={fighter.losses}
                         />
-                    <input type="text" value={this.state.coast} onChange={this.bidChange}/>
-                    <button onClick={(() => this.props.addFreeAgent(fighter.id, this.props.leagueId, this.props.teamId, this.state.cost).then(this.props.history.push(`/league-auction/${this.props.leagueId}`)))}>
+                        {fighter.current_bid ? 
+                        <div>
+                        <p>Current Bid: {fighter.current_bid}</p> 
+                        <br />
+                        <Link to={`/league-auction/${this.props.leagueId}`}>To Auction</Link>
+                        </div>
+                        : 
+                        <div>
+                        <input type="text" value={this.state.coast} onChange={this.bidChange}/>
+                        <button onClick={(() => this.props.addFreeAgent(fighter.id, this.props.leagueId, this.props.teamId, this.state.cost).then(this.props.history.push(`/league-auction/${this.props.leagueId}`)))}>
+                        
+                        
                     Bid
                    
                     
                     </button>
+                    </div>}
                 </div>
                     
                     

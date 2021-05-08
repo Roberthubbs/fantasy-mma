@@ -31,7 +31,11 @@ module.exports = (sequelize, DataTypes) => {
     wonBySUB: DataTypes.BOOLEAN,
     lostBySub: DataTypes.BOOLEAN,
     lostByKO: DataTypes.BOOLEAN,
-    lost: DataTypes.BOOLEAN
+    lost: DataTypes.BOOLEAN,
+    opponentRank: DataTypes.BOOLEAN,
+    bonusWin: DataTypes.BOOLEAN,
+    champWin: DataTypes.BOOLEAN,
+
   }, {
     sequelize,
     modelName: 'FighterOneStats',

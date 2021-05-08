@@ -37,3 +37,10 @@ export const sendLeagueJoinRequest = async(userId, leagueName, leagueId, adminId
         }
     })
 }
+
+export const userLeaguesSelection = async(userId) => {
+    return axios.request(`/user/leagues/${userId}`, {
+        method: "get",
+        headers: allHeaders
+    })
+}

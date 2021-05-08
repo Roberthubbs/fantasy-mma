@@ -7,8 +7,17 @@
 .general-link-class{
   text-decoration: none;
   /* padding: 10%; */
+  
 }
+.app-header{
+  display: flex;
+  justify-content: space-between;
 
+}
+.header-links{
+  padding: 5px;
+  
+}
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

@@ -1,0 +1,352 @@
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [
+    { fighterId: 1283, array_agg: [Array] },
+    { fighterId: 1289, array_agg: [Array] },
+    { fighterId: 4474, array_agg: [Array] },
+    { fighterId: 4475, array_agg: [Array] }
+  ],
+  Result {
+    command: 'SELECT',
+    rowCount: 4,
+    oid: null,
+    rows: [ [Object], [Object], [Object], [Object] ],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[{"bidId":32,"fighterId":4475,"bidCost":9,"bidTime":"2021-05-05T21:49:51.697Z","leagueId":1,"teamId":1,"firstName":"Derrick","lastName":"Lewis","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn","children":["sturgeonstannn$5","sturgeonstannn$7","sturgeonstannn$8","sturgeonstannn$6","sturgeonstannn$4"]},{"bidId":33,"fighterId":4474,"bidCost":5,"bidTime":"2021-05-05T21:49:58.473Z","leagueId":1,"teamId":1,"firstName":"Andrei","lastName":"Arlovski","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn","children":["sturgeonstannn$4","sturgeonstannn$4"]}]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+[
+  [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false
+  }
+]
+[]
+5/7/2021, 10:54:12 AM: SUCCESS: 1, player: 1, fighter: 4475
+5/7/2021, 10:54:12 AM: SUCCESS: 1, player: 1, fighter: 4474

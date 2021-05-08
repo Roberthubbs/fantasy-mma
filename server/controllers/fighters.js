@@ -8,6 +8,8 @@ router.post('/all', async(req, res) => {
     // fs.createReadStream('/Users/roberthubert/Desktop/mma-fantasy/csv-doc.csv')
     //     .pipe(csv())
     //     .on('data', async(row) => {
+    //         console.log(row);
+    //      //   debugger;
     //         let wins = ''
     //         let losses = '';
     //         let seenDash = false
@@ -36,6 +38,7 @@ router.post('/all', async(req, res) => {
     //         let fighterObject = {
     //             firstName: first,
     //             lastName: last,
+    //             fullName: row.NAME.replace(/([^a-z0-9 ]+)/gi, ''),
     //             wins: parseInt(wins),
     //             losses: parseInt(losses),
     //             ranking: ranking,
@@ -44,19 +47,19 @@ router.post('/all', async(req, res) => {
     //         }
     //         console.log(fighterObject);
 
-    //         console.log({'wins': parseInt(wins), 'losses': parseInt(losses)});
-    //        //console.log(recordArr[1])
+    //     //     console.log({'wins': parseInt(wins), 'losses': parseInt(losses)});
+    //     //    //console.log(recordArr[1])
     //        try {
     //            let fighter = await Fighter.create(fighterObject)
     //             console.log(fighter)
     //        } catch(error){
     //            console.log(error)
     //        }
-    //     })
-    //     .on('end', () => {
-    //         console.log('CSV file successfully processed');
-    //     })
-    //     .catch((err) => console.log(err));
+        // })
+        // .on('end', () => {
+        //     console.log('CSV file successfully processed');
+        // })
+       // .catch((err) => console.log(err));
     //debugger;
     let {selectedWeightClass} = req.body;
     //let selectedWeightClass = arr[0];
@@ -143,7 +146,7 @@ const StoreFighters = async(arr)=> {
     for (let i = 0; i < arr.length; i++){
         let st = arr[i];
         let fighter = {
-            
+
         }
     }
 }

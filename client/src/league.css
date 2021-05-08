@@ -6,7 +6,7 @@
 .outer-selected-league-div{
     padding-bottom: 10%;
 }
-.selected-league-top{
+/* .selected-league-top{
 
 }
 .selected-league-bottom{
@@ -14,7 +14,7 @@
 }
 .selected-league-text-head{
 
-}
+} */
 .selected-league-text{
     width: 50%;
     min-height: 60px;
@@ -66,4 +66,42 @@
 }
 .notif-header-span{
     text-align:start;
+}
+.your-leagues-list{
+    list-style: none;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+
+}
+/* .leagues-li-top{
+
+} */
+.your-leagues-btn{
+    border: none;
+    width:100%;
+    height:50px;
+    background-color: rgb(233, 154, 7, .9);
+
+
+}
+.your-leagues-list-btn{
+    width: 100%;
+    height:40px;
+        background-color: rgba(241, 201, 125, 0.9);
+    border-left: none;
+    border-top: none;
+    border-right: none;
+    border-bottom: .4px solid black;
+
+}
+.leagues-li-top{
+    width: 150px;
+    height:50px;
+
+}
+.leagues-li{
+    width:150px;
+    height:40px;
+
 }

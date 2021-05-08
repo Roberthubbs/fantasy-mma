@@ -34,7 +34,8 @@
     "pg": "^8.5.1",
     "pg-hstore": "^2.3.3",
     "puppeteer": "^9.0.0",
-    "sequelize": "^6.6.2"
+    "sequelize": "^6.6.2",
+    "electron": ">=9.4.0"
   },
   "devDependencies": {
     "sequelize-cli": "^6.2.0"
