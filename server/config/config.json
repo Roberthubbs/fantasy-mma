@@ -12,10 +12,12 @@
     "database": "fantasy_mma_test",
     "host": "127.0.0.1",
     "dialect": "postgres",
-      "dialectOptions": {
-        "ssl": true,
-        "rejectUnauthorized": false
-      },
+     "dialectOptions": {
+            "ssl": {
+                "require": true,
+                "rejectUnauthorized": false
+      }
+    },
       "use_env_variable": "DATABASE_URL"
   },
   "production": {
@@ -25,8 +27,10 @@
     "host": "127.0.0.1",
     "dialect": "postgres",
     "dialectOptions": {
-      "ssl": true, 
-      "rejectUnauthorized": false
+      "ssl": {
+        "require": true,
+        "rejectUnauthorized": false
+      }
     },
     "use_env_variable": "DATABASE_URL"
   }
