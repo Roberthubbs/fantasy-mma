@@ -13,7 +13,14 @@ const playersController = require('./server/controllers/players-contoller.js');
 const leagueController = require('./server/controllers/league-contoller');
 const notificationsController = require('./server/controllers/notifications-controller.js');
 const rosterController = require('./server/controllers/roster-controller.js');
+if (process.env.NODE_ENV === 'production') {
 
+    app.use(express.static(path.join(__dirname, 'client/build')))
+
+    // app.get('*', (req, res) => {
+    //     res.sendFile(path.join(__dirname + '/client/build/index.html'))
+    // })
+}
 app.use((req, res, next) => {
     res.set({
         "Access-Control-Allow-Origin": "*",
