@@ -57,10 +57,10 @@ router.post('/login', async (req, res) => {
 router.delete('/logout', async (req, res) => {
 
 
-
+    debugger;
     const { user } = req.body
 
-    const authToken = req.body.user.password
+    const authToken = req.body.user.user.password
 
 
     if (user && authToken) {

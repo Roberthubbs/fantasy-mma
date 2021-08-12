@@ -6,7 +6,9 @@ class SessionForm extends React.Component {
         super(props);
         this.state = {
             username: '',
-            password: ''
+            password: '',
+            success: false,
+            errors: []
         };
         this.handleGuestSubmit = this.handleGuestSubmit.bind(this)
         this.handleSubmit = this.handleSubmit.bind(this);
@@ -32,12 +34,18 @@ class SessionForm extends React.Component {
         const user = Object.assign({}, this.state);
 
         this.props.processForm(user).then((action) => {
-            this.props.history.push("/all")
-        }
+            if (action.type == 'RECEIVE_SESSION_ERRORS'){
+                this.setState({errors: action.errors})
+            } else {
+                this.props.history.push("/all")
+                window.location.reload();
+
+            }
+         }
             
         
         );
-
+      
     }
     handleGuestSubmit(e) {
         e.preventDefault();

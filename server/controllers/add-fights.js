@@ -1,6 +1,6 @@
 const { Fight, FighterOneStats, Fighter } = require('../models');
 var util = require('util');
-const allFights = require('../../aF.json');
+const allFights = require('../../fight-data.json');
 const fs = require("fs");
 let logFile = fs.createWriteStream('/Users/roberthubert/Desktop/mma-fantasy/server/logs/add-fighters-error.log');
 var log_stdout = process.stdout;
@@ -47,8 +47,8 @@ const addFights = async () => {
             weight = 'WFW'
         }
         const today = new Date();
-        let fighterOne = await Fighter.findOne({where: {lastWeight: weight, fullName: record.fighterOne.name}});
-        let fighterTwo = await Fighter.findOne({where: {lastWeight: weight, fullName: record.fighterTwo.name}});
+        let fighterOne = await Fighter.findOne({where: {lastWeight: weight, fullName: record.fighterOne.name, date_of_birth: record.dob}});
+        let fighterTwo = await Fighter.findOne({where: {lastWeight: weight, fullName: record.fighterTwo.name, date_of_birth: record.dob}});
         if (!fighterOne){
             console.log(`${today.toLocaleString()}: Could not find record ${weight}, ${record.fighterOne.name} as fighterOne, index ${i}`);
         } else if (!fighterTwo){
@@ -151,7 +151,8 @@ const addFights = async () => {
                                                                             lostByKO: koW.fT,
                                                                                 lost: !won.FO,
                 champWin: champWin.fO,
-                bonusWin: bonus.fO
+                bonusWin: bonus.fO,
+                date_of_birth: fO.dob
                                                                             }
             fTO = {
                 fighterId: twoId,
@@ -173,7 +174,8 @@ const addFights = async () => {
                 lostByKO: koW.fO,
                 lost: !won.fT,
                 champWin: champWin.fT,
-                bonusWin: bonus.fT
+                bonusWin: bonus.fT,
+                date_of_birth: fT.dob
             }
             let cfo = await FighterOneStats.create(fOO);
             let cft = await FighterOneStats.create(fTO);

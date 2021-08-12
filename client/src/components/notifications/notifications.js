@@ -12,7 +12,6 @@ const Notifications = (props) => {
             setSearch(true);
 
             props.getNotifications(props.userId).then(res => {
-                debugger;
                 addNotifications(res.notifications.data);
             })
         }
@@ -33,10 +32,11 @@ const Notifications = (props) => {
                     <div class='league-request-noti-view'>
                         {notif.type == 1 ? (<p>{notif.sendername} would like to join your league</p>) : null}
                         <p>{notif.requestMessage}</p>
-                        {notif.responded ? (
-                        <span>
-                        <button onClick={() => props.respond(notif.senderId, 1, notif.joinLeagueRequest).then(setSearch(false))}>Accept</button><button onClick={() => props.respond(notif.senderId, 1, notif.joinLeagueRequest).then(setSearch(false))}>Decline</button>
-                            </span>) : <p><FontAwesomeIcon icon={faCheckCircle } /> Responded</p>}
+                        {notif.responded ? <p><FontAwesomeIcon icon={faCheckCircle} /> Responded</p> : (
+                            <span>
+                                <button onClick={() => props.respond(notif.senderId, 1, notif.joinLeagueRequestId, props.leagueId).then(setSearch(false)).then(() => getNoti())}>Accept</button>
+                                <button onClick={() => props.respond(notif.senderId, 2, notif.joinLeagueRequestId, props.leagueId).then(setSearch(false)).then(() => getNoti())}>Decline</button>
+                            </span>)}
                     </div>
                 ))}
             </div>

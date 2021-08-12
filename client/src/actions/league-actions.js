@@ -3,6 +3,8 @@ import * as LeagueUtils from '../utils/league-utils';
 export const RECEIVE_LEAGUE = "RECEIVE_LEAGUE";
 export const RECEIVE_LEAGUE_ERROR = "RECEIVE_LEAGUE_ERROR";
 export const RECEIVE_USER_LEAGUES = "RECEIVE_USER_LEAGUES";
+export const RECEIVE_STORED_LEAGUE = "RECEIVE_STORED_LEAGUE";
+
 
 export const receiveLeague = datum => {
     ////debugger;
@@ -12,6 +14,16 @@ export const receiveLeague = datum => {
         type: RECEIVE_LEAGUE,
         data
 }};
+
+export const receiveStoredLeague = datum => {
+    let { data } = datum;
+    return {
+        type: RECEIVE_STORED_LEAGUE,
+        data
+    }
+}
+
+
 export const receiveUsersLeagues = userLeagues => ({
     type: RECEIVE_USER_LEAGUES,
     userLeagues
@@ -38,7 +50,17 @@ export const getLeague = (userId, leagueName) => dispatch => (
         ))
     })
 );
+export const gSL = (teamId) => dispatch => (
+    LeagueUtils.getStoredLeague(teamId).then((league) => (
+        dispatch(receiveLeague (league), err => (
+            dispatch(receiveErrors(err))
+        ))
+    ))
+)
 
+export const asl = (teamId, leagueId) => dispatch => (
+    LeagueUtils.addStoredLeague(teamId, leagueId)
+)
 export const slr = (userId, leagueName, leagueId, teamId, requestMessage) => dispatch => (
     LeagueUtils.sendLeagueJoinRequest(userId, leagueName, leagueId, teamId, requestMessage)
 )

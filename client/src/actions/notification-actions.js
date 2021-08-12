@@ -18,7 +18,7 @@ export const fetchUserNotifs = (userId) => dispatch => (
         dispatch(receiveErrors(err))
     ))
 );
-export const respondToJoinRequest = (userId, response, requestId) => dispatch => (
+export const respondToJoinRequest = (userId, response, requestId, leagueId) => dispatch => (
     NotificationUtils.respondToLeagueJoin(userId, response, requestId).then((res) => 
         dispatch(receiveNotifications(res))
         , err => (

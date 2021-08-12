@@ -27,7 +27,19 @@ export const getLeague = async(userId, leagueName) => {
         headers: allHeaders
     })
 };
-
+export const getStoredLeague = async(teamId) => {
+    return await axios.request(`/get-current-league/${teamId}`, {
+        method: "get",
+        headers: allHeaders
+    })
+}
+export const addStoredLeague = async (teamId, leagueId) => {
+    return await axios.request(`/add-current-league`, {
+        method: "post",
+        data: {teamId, leagueId},
+        headers: allHeaders
+    })
+}
 export const sendLeagueJoinRequest = async(userId, leagueName, leagueId, adminId, requestMessage) => {
     return axios.request(`/join-league`, {
         method: "post",

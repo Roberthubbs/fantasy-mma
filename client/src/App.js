@@ -4,6 +4,7 @@ import React, { useContext, useReducer, useState } from "react";
 //import leagueReducer from './reducers/league-reducer';
 //import GetLeague from './components/league/get-league-container';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import GetLinksMenu from './components/menus/get-links-menu';
 import Fighters from './components/fighters/all-fighters-container';
 import FreeAgents from './components/fighters/free-agent-container';
 import LoginContainer from './components/login-container';
@@ -12,11 +13,16 @@ import CreateLeague from './components/league/create-league-container';
 import LeagueAuction from './components/league/league-action-container';
 import JoinLeagueRequest from './components/league/join-league-container';
 import Notifications from './components/notifications/notification-container';
+import GetLeagueActions from './components/menus/get-league-actions';
 import UserLeagues from './components/league/user-leagues-container';
 import YourRoster from './components/roster/your-roster-container';
+import Logout from './components/user/logout-button-container';
 import { AuthRoute } from './utils/route-util';
-
-import leagueReducer from './reducers/league-reducer';
+import StoredLeague from './components/league/stored-league-container';
+import axios from 'axios';
+const allHeaders = {
+  "Access-Control-Allow-Origin": "*"
+};
 //import React, { Component } from 'react'
 
 // export default class App extends Component {
@@ -31,7 +37,13 @@ import leagueReducer from './reducers/league-reducer';
 //     )
 //   }
 // }
-
+const addStoredLeague = async (teamId, leagueId) => {
+  return await axios.request(`/add-current-league`, {
+    method: "post",
+    data: { teamId, leagueId },
+    headers: allHeaders
+  })
+}
 function App(props) {
   // if (this.props.user){
   //   return ()
@@ -39,58 +51,22 @@ function App(props) {
 
   let [showLinks, setLinks] = useState(false);
   let [currLeagueId, setCurrLeague] = useState('no league');
-
-  const getLinksMenu = () => {
-    
-    console.log(props, "props in App");
-    if (props.user){
-      return null;
-    } else {
-      return (
-        <div>
-         <Link to="/register">Sign Up</Link>
-          <Link to="/login">Login</Link>
-        </div>
-      )
-    }
-  }
-  const changeLeague = (val) => {
+  let [refresh, refreshed] = useState(false)
+  
+  const changeLeague = async(val) => {
+    await addStoredLeague(props.user, val);
+    debugger;
     setCurrLeague(val);
+    
+  };
+  const getLeagueId = async(val) => {
+    setCurrLeague(val)
+  }
+  function forceRefresh(val){
+    refreshed(!refresh)
   }
   console.log('app props', props);
-  const getLeagueActions = () => {
-
-    if (currLeagueId != 'no league'){
-      
-      console.log('In League ID exists: ', currLeagueId)
-
-      return (
-        <div>
-          <Link to={`/notifications`} className='general-link-class'>Your Notifications</Link>
-          <br />
-          <Link to={`/free-agents/${currLeagueId}`} className='general-link-class'>Free Agents</Link>
-          <br /> 
-          <Link to={`/league-auction/${currLeagueId}`} className='general-link-class'>Current Auction</Link>
-          <YourRoster leagueId={currLeagueId} playerId={props.user} />
-        </div>
-      )
-    } else if (currLeagueId == 'no league' && props.user) {
-      console.log('In League ID exists: ', currLeagueId)
-
-      return (
-        <div >
-          <Link to="/create-league" className='general-link-class'>Create League</Link>
-          <br />
-
-          <Link to="/join-league" className='general-link-class'>Join League</Link>
-          <br />
-
-          <UserLeagues userId={props.user} sendLeague={changeLeague} />
-
-        </div>
-      )
-    }
-  }
+  
   console.log('state league id global', currLeagueId)
   return (
     <div className="App">
@@ -99,9 +75,11 @@ function App(props) {
           
             <header className="app-header">             
               <div className='header-links'>
-
-                {getLinksMenu()}
-                {getLeagueActions()}
+                <StoredLeague receiveLeague={getLeagueId} />
+                
+          <GetLinksMenu user={props.user} forceRefresh={forceRefresh} currLeagueId={props.currLeagueId}
+            changeLeague={changeLeague}/>
+               
               </div>
               <div className='header-links'>
                 <Link to="/all" className='general-link-class'>All Fighters</Link>

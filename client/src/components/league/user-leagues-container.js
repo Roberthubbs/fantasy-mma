@@ -1,5 +1,5 @@
 import { getAllUserLeagues } from '../../actions/league-actions';
-import UserLeagues from './user-leagues';
+import UserLeagues from './user-league'
 import { connect } from 'react-redux';
 
 // const mstp = (state, ownProps) => {

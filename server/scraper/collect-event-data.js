@@ -115,7 +115,7 @@ const success = chalk.keyword("green");
         await browser.close();
         // Writing the news inside a json file
        
-        fs.writeFile("hackernewsfour.json", JSON.stringify(browserArr), function (err) {
+        fs.writeFile("event-data.json", JSON.stringify(browserArr), function (err) {
             if (err) throw err;
             console.log("Saved!");
         });

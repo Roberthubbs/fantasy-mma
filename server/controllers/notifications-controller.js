@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const { Notification } = require('../models');
+const { Notification, JoinLeagueRequest, UserLeague } = require('../models');
 const db = require('../models');
 router.get('/notifications/:userId', async(req, res) => {
     let { userId } = req.params;
@@ -23,7 +23,7 @@ router.get('/notifications/:userId', async(req, res) => {
 });
 
 router.post('/respond-league-join', async(req,res) => {
-    let { userId, response, requestId } = req.body;
+    let { userId, response, requestId, leagueId } = req.body;
     let approved;
     let declined;
     if (response === 1){
@@ -33,6 +33,7 @@ router.post('/respond-league-join', async(req,res) => {
         approved = false;
         declined = true;
     }
+    debugger;
     try {
         let updateNotification = await Notification.update(
             { responded: true },
@@ -41,8 +42,13 @@ router.post('/respond-league-join', async(req,res) => {
             approved: approved, denied: declined, waitingApproval: false
         }, 
         {
-             where: {id: joinLeagueRequestId}
+             where: {id: requestId}
         })
+        if (approved == true){
+            let league = await League.findOne({where: {id: leagueId}})
+            let userLeague = await UserLeague.create({ leagueId: leagueId, teamId: userId, adminId: league.teamId, leagueName: league.name });
+
+        }
         //let createUserLeague = 
     } catch (error) {
         res.json(error)

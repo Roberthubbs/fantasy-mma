@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, { useState } from 'react';
 
 const UserLeagues = (props) => {
     let [clicked, click] = useState(false);
@@ -20,11 +20,7 @@ const UserLeagues = (props) => {
     if (!leagues.length && !fetched){
         fetchLeagues();
     }
-    // return (
-    //     <div>
-            
-    //     </div>
-    // )
+  
     if (!clicked){
         return (
             <ul className='your-leagues-list'>
@@ -44,7 +40,5 @@ const UserLeagues = (props) => {
         )
     }
 }
-//your-leagues-div
-//your-leagues-btn
-//your-leagues-list-btn
+
 export default UserLeagues

@@ -12,7 +12,7 @@ export const getUserNotifs = async(userId) => {
 }
 
 
-export const respondToLeagueJoin = async(userId, response, requestId) => {
+export const respondToLeagueJoin = async(userId, response, requestId, leagueId) => {
     return await axios.request('/respond-league-join', {
         method: 'post',
         headers: allHeaders,
