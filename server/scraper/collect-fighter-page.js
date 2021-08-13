@@ -28,7 +28,7 @@ const scrape = async() => {
         });
         let links = [];
 
-        for (let i = 0; i < 10; i++){
+        for (let i = 0; i < fighters.length; i++){
             console.log(i);
             // console.log(fighters[i]["lastName"]);
             let lastName = fighters[i]["lastName"]
@@ -42,7 +42,7 @@ const scrape = async() => {
             await page.goto(tempUrl);
             await page.waitForSelector('body');
             
-            let search = await page.evaluate((lastName, firstName, weight, id) => {
+            let search = await page.evaluate(async(lastName, firstName, weight, id) => {
                 let table = document.querySelector('body > section > div > div > div > table > tbody');
                 //todo search through the table for fighters that match
                 
@@ -126,12 +126,13 @@ const scrape = async() => {
                                 console.log('Found your fighter');
                                 link = cells[0].firstElementChild.href;
                                 
-                                return link;
+                                link = { fighterName: firstName + ' ' + lastName, weightClass: weight, id: id, link: link };
+                                return link
                             } else {
                                 return;
                             }
                         } else if (j == tableRows.length-1){
-                            link = { fighterName: firstName + ' ' + lastName, weightClass: weight, id: id };
+                            link = { fighterName: firstName + ' ' + lastName, weightClass: weight, id: id, link: 'none' };
                             return link;
                         }
                         
@@ -140,8 +141,14 @@ const scrape = async() => {
 
             }, lastName, firstName, weight, id)
             links.push(search);
-            console.log("LINKS: ", links)
         }
+        await browser.close();
+        // Writing the fighters links inside a json file
+
+        fs.writeFile("fighter-dob.json", JSON.stringify(links), function (err) {
+            if (err) throw err;
+            console.log("Saved!");
+        });
     } catch (err) {
         console.log(error); 
     }
