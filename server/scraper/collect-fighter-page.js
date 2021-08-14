@@ -9,7 +9,7 @@ const fs = require("fs");
 
 const error = chalk.bold.red;
 const success = chalk.keyword("green");
-const { Fighter, LeagueFighter, Player, sequelize, LeagueAuction } = require('../models');
+const { Fighter } = require('../models');
 
 const scrape = async() => {
     

@@ -23,7 +23,7 @@ const scrape = async() => {
         let url ='http://ufcstats.com/';
         await page.goto(url);
         await page.waitForSelector('body');
-        for (let i = 0; i < 20; i++){
+        for (let i = 0; i < links.length; i++){
             // let id = fighters[i]["id"];
             // let fighterPage = fighters[i]["link"];
 
@@ -39,20 +39,20 @@ const scrape = async() => {
             await page.goto(fighterPage);
             await page.waitForSelector('body');
             let search = await page.evaluate(async (id, fighterPage) => {
-                let height = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(1)').innerText;
-                let reach = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(3)').innerText;
-                let stance = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(4)').innerText;
-                let dob = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(5)').innerText;
-                let sLpM = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(1)').innerText;
-                let slaccuracy = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(2)').innerText;
-                let sapminute = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(3)').innerText;
-                let strdef = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(4)').innerText;
-                let tdavg = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(2)').innerText;
-                let tdacc = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(3)').innerText;
-                let tddef = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(4)').innerText;
-                let subattperfifteen = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(5)').innerText;
-                let nickname = document.querySelector('body > section > div > p').innerText;
-                let record = document.querySelector('body > section > div > h2 > span.b-content__title-record').innerText;
+                let height = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(1)').innerText.replace(/^[^:]*:/, "").trim();
+                let reach = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(3)').innerText.replace(/^[^:]*:/, "").trim();
+                let stance = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(4)').innerText.replace(/^[^:]*:/, "").trim();
+                let dob = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(5)').innerText.replace(/^[^:]*:/, "").trim();
+                let sLpM = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(1)').innerText.replace(/^[^:]*:/, "").trim();
+                let slaccuracy = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(2)').innerText.replace(/^[^:]*:/, "").trim();
+                let sapminute = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(3)').innerText.replace(/^[^:]*:/, "").trim();
+                let strdef = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-left > ul > li:nth-child(4)').innerText.replace(/^[^:]*:/, "").trim();
+                let tdavg = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(2)').innerText.replace(/^[^:]*:/, "").trim();
+                let tdacc = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(3)').innerText.replace(/^[^:]*:/, "").trim();
+                let tddef = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(4)').innerText.replace(/^[^:]*:/, "").trim();
+                let subattperfifteen = document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_middle-width.js-guide.clearfix > div.b-list__info-box-left.clearfix > div.b-list__info-box-right.b-list__info-box_style-margin-right > ul > li:nth-child(5)').innerText.replace(/^[^:]*:/, "").trim();
+                let nickname = document.querySelector('body > section > div > p').innerText.replace(/^[^:]*:/, "").trim();
+                let record = document.querySelector('body > section > div > h2 > span.b-content__title-record').innerText.replace(/^[^:]*:/, "").trim();
                 return { fighterId: id, height, reach, stance, dob, sLpM, slaccuracy, sapminute, strdef, tdavg, tdacc, tddef, subattperfifteen, nickname, record}
             }, id, fighterPage)
             collectedStats.push(search);
