@@ -1,34 +1,63 @@
-import React from 'react';
+/* jshint strict: true */
+import React, { useState, useEffect } from 'react';
 import Fighter from './fighter';
-class Fighters extends React.Component {
-    constructor(props){
-        super(props);
-        this.state = {
-            fighters: this.props.fighters,
-            weight: ['HW','LHW','MW','WW','LW','FW','BW','FLW','WBW','WFLW','WSW'],
-            selectedWeightClass: 'All'
-        }
-        this.dropDownChange = this.dropDownChange.bind(this);
-    }
-    componentDidMount(){
-        this.props.receiveAllFighters(this.state.selectedWeightClass)
-    }
-    componentDidUpdate(prevProps){
-        if (prevProps.fighters != this.props.fighters){
-            this.setState({fighters: this.props.fighters})
-        }
-    }
-    dropDownChange(event) {
-        //debugger;
-        this.props.receiveAllFighters(event.target.value);
+import axios from 'axios';
+//class Fighters extends React.Component {
+//const Fighters = (props) => {
+const Fighters = (props) => {
+    //constructor(props){
+       // super(props);
+ //       state = {
+ //           fighters: props.fighters,
+ //           weight: ['HW','LHW','MW','WW','LW','FW','BW','FLW','WBW','WFLW','WSW'],
+ //           selectedWeightClass: 'All'
+ //       }
+        //dropDownChange = dropDownChange.bind(this);
+    //}
+    let [weight] = useState(['HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW']);
+    let [fighters, changeFighters] = useState(props.fighters);
+    let [selectedWeightClass, changeWeightClass] = useState('All');
+    //selectedWeightClass = useState(['HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW']);
+    let [updated, update] = useState(true);
+    useEffect(() => {
+        if (updated){
+            update(!updated)
+            console.log(selectedWeightClass);
+            // props.receiveAllFighters(selectedWeightClass).then((res) => {
+            //     debugger;
+            //     changeFighters(props.fighters);
+            //     //           changeWeightClass(event.target.value)
+            // });
+            axios.request('/all', {
+                data: {
+                    selectedWeightClass
+                },
+                method: "post",
+                headers: { 'Content-Type': 'application/json'}
+            }).then((res) => {
+                changeFighters(res.data);
+            });
 
-        this.setState({ selectedWeightClass: event.currentTarget.value })
-        //console.log(this.state.selectedWeightClass);
-       
+
+
     }
+});
+
+    // const componentDidUpdate = (prevProps) => {
+    //     if (prevProps.fighters != fighters){
+    //         changeFighters(props.fighters)
+    //     }
+    // }
+    const dropDownChange = (event) => {
+        update(!updated);
+        //debugger;
+        changeWeightClass(event)
+    }
+    // useEffect(() => {
+
+    //})
     
-    render(){
-        if (!this.state.fighters){
+        if (!fighters){
             return(
                 <div>
 
@@ -42,14 +71,19 @@ class Fighters extends React.Component {
                 <div>
                     Choose Weight Class:
                     <br />
-                    <select name="Max Players in League" value={this.state.weightClass} onChange={this.dropDownChange} id="">
-                        {this.state.weight.map((listVal) => (
-                            <option value={listVal}>{listVal}</option>
+                    <select name="Max Players in League" value={selectedWeightClass} onChange={e => 
+                        dropDownChange(e.currentTarget.value)
+                        
+                    } 
+                        
+                    id="">
+                        {weight.map((listVal) => (
+                            <option value={listVal} key={listVal} >{listVal}</option>
                         ))}
 
                     </select>
                 </div>
-                <div>{this.state.fighters.map((fighter, i) => (
+                <div>{fighters.map((fighter, i) => (
                 //    <li> <div>
                 //             {/* <h2>{fighter.firstName} {fighter.lastName} #{fighter.ranking}</h2>
                 //             <h3>{fighter.lastWeight}</h3>
@@ -76,6 +110,6 @@ class Fighters extends React.Component {
             </div>
         )
     }
+//}
 
-}
 export default Fighters;

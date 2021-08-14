@@ -63,6 +63,7 @@ router.post('/all', async(req, res) => {
     //debugger;
     let {selectedWeightClass} = req.body;
     //let selectedWeightClass = arr[0];
+    debugger;
     console.log(selectedWeightClass);
     let fighters
     try {
