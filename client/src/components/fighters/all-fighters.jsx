@@ -2,32 +2,16 @@
 import React, { useState, useEffect } from 'react';
 import Fighter from './fighter';
 import axios from 'axios';
-//class Fighters extends React.Component {
-//const Fighters = (props) => {
 const Fighters = (props) => {
-    //constructor(props){
-       // super(props);
- //       state = {
- //           fighters: props.fighters,
- //           weight: ['HW','LHW','MW','WW','LW','FW','BW','FLW','WBW','WFLW','WSW'],
- //           selectedWeightClass: 'All'
- //       }
-        //dropDownChange = dropDownChange.bind(this);
-    //}
-    let [weight] = useState(['HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW']);
+
+    let [weight] = useState(['All', 'HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW']);
     let [fighters, changeFighters] = useState(props.fighters);
     let [selectedWeightClass, changeWeightClass] = useState('All');
-    //selectedWeightClass = useState(['HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW']);
     let [updated, update] = useState(true);
     useEffect(() => {
         if (updated){
             update(!updated)
             console.log(selectedWeightClass);
-            // props.receiveAllFighters(selectedWeightClass).then((res) => {
-            //     debugger;
-            //     changeFighters(props.fighters);
-            //     //           changeWeightClass(event.target.value)
-            // });
             axios.request('/all', {
                 data: {
                     selectedWeightClass
@@ -41,21 +25,13 @@ const Fighters = (props) => {
 
 
     }
-});
+    }, [updated, selectedWeightClass]);
 
-    // const componentDidUpdate = (prevProps) => {
-    //     if (prevProps.fighters != fighters){
-    //         changeFighters(props.fighters)
-    //     }
-    // }
     const dropDownChange = (event) => {
         update(!updated);
-        //debugger;
         changeWeightClass(event)
     }
-    // useEffect(() => {
 
-    //})
     
         if (!fighters){
             return(
@@ -84,15 +60,6 @@ const Fighters = (props) => {
                     </select>
                 </div>
                 <div>{fighters.map((fighter, i) => (
-                //    <li> <div>
-                //             {/* <h2>{fighter.firstName} {fighter.lastName} #{fighter.ranking}</h2>
-                //             <h3>{fighter.lastWeight}</h3>
-                //             <h3>{fighter.wins} - {fighter.losses}</h3> */}
-                            
-                            
-                //         </div>
-                //     </li>
-                    //console.log(fighter.id)
                    
                     <Fighter
                         key={i}
@@ -110,6 +77,6 @@ const Fighters = (props) => {
             </div>
         )
     }
-//}
+
 
 export default Fighters;

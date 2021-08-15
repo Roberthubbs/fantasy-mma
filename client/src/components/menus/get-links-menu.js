@@ -20,16 +20,16 @@ function GetLinksMenu(props){
                 <div>
                 <Link to={`/notifications`} className='general-link-class'>Your Notifications</Link>
                 <br />
-                <Link to={`/free-agents/${props.currLeagueId}`} className='general-link-class'>Free Agents</Link>
+                <Link to={`/free-agents/${props.league}`} className='general-link-class'>Free Agents</Link>
                 <br />
-                <Link to={`/league-auction/${props.currLeagueId}`} className='general-link-class'>Current Auction</Link>
+                <Link to={`/league-auction/${props.league}`} className='general-link-class'>Current Auction</Link>
                 <UserLeagues userId={user} sendLeague={props.changeLeague} />
 
-                <YourRoster leagueId={props.currLeagueId} playerId={user} />
+                <YourRoster leagueId={props.league} playerId={user} />
             </div>
             </div>
         )
-    } else if (props.currLeagueId == 'no league' && user) {
+    } else if (props.league == 'no league' && user) {
         return (
             <div >
                 <Link to="/create-league" className='general-link-class'>Create League</Link>
@@ -52,5 +52,5 @@ function GetLinksMenu(props){
     }
 }
 
-export default GetLinksMenu
+export default GetLinksMenu;
 

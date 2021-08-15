@@ -4,7 +4,7 @@ import React, { useContext, useReducer, useState } from "react";
 //import leagueReducer from './reducers/league-reducer';
 //import GetLeague from './components/league/get-league-container';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
-import GetLinksMenu from './components/menus/get-links-menu';
+import GetLinksMenu from './components/menus/get-links-menu-container';
 import Fighters from './components/fighters/all-fighters-container';
 import FreeAgents from './components/fighters/free-agent-container';
 import LoginContainer from './components/login-container';
@@ -23,20 +23,7 @@ import axios from 'axios';
 const allHeaders = {
   "Access-Control-Allow-Origin": "*"
 };
-//import React, { Component } from 'react'
 
-// export default class App extends Component {
-//   constructor(props){
-//     super(props)
-//   }
-//   render() {
-//     return (
-//       <div>
-        
-//       </div>
-//     )
-//   }
-// }
 const addStoredLeague = async (teamId, leagueId) => {
   return await axios.request(`/add-current-league`, {
     method: "post",
@@ -45,9 +32,6 @@ const addStoredLeague = async (teamId, leagueId) => {
   })
 }
 function App(props) {
-  // if (this.props.user){
-  //   return ()
-  // }
 
   let [showLinks, setLinks] = useState(false);
   let [currLeagueId, setCurrLeague] = useState('no league');

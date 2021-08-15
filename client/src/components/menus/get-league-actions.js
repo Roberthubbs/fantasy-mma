@@ -1,16 +1,13 @@
 import React, { useState } from 'react';
 import UserLeagues from '../league/user-leagues-container';
 import YourRoster from '../roster/your-roster-container';
-import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import { BrowserRouter as Link } from 'react-router-dom';
 
 
 function GetLeagueActions(props)  {
-    //currLeagueId
-    //changeLeague
-    //user
+
     let [refresh, refreshed] = useState(false);
     function refreshIt() {
-        //const [refresh, refreshed] = useState(0);
         return () => refreshed(refresh => refresh + 1)
     }
     let [user, setUser] = useState(props.user)
