@@ -13,7 +13,7 @@ const FighterPage = (props) => {
     }
 
     return (
-        <div>{fighter.nickname}</div>
+        <div>{fighter.nickname}</div> 
     )
 }
 
