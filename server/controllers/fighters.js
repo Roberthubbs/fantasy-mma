@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const csv = require('csv-parser');
 const fs = require('fs');
-const { Fighter, LeagueFighter, Player, sequelize, LeagueAuction } = require('../models');
+const { Fighter, LeagueFighter, Player, sequelize, LeagueAuction, FighterCumulativeStats } = require('../models');
 
 router.post('/all', async(req, res) => {
     // fs.createReadStream('/Users/roberthubert/Desktop/mma-fantasy/csv-doc.csv')
@@ -119,20 +119,9 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
         let fighter = await LeagueFighter.findOne({where: {fighterId: fighterId, leagueId: leagueId}});
         console.log(fighter)
         console.log(await Player.calculateWaiver(teamId, cost));
-        // if (fighter ){
-        //     res.send(body);
-        //     return;
-        // }
-        // leagueId: DataTypes.INTEGER,
-        //     teamId: DataTypes.INTEGER,
-        //         bidTime: DataTypes.DATE,
-        //             auctionStartDate: DataTypes.DATE,
-        //                 auctionEndDate: DataTypes.DATE,
-        //                     fighterId: DataTypes.INTEGER,
-        //                         bidCost:
+
         await LeagueAuction.create({leagueId: leagueId, fighterId: fighterId, bidCost: cost, bidTime: Date.now(), teamId: teamId});
-  //      await LeagueFighter.create({fighterId: fighterId, teamId: teamId, leagueId: leagueId});
-  //      let fighters = await LeagueFighter.findAll({where: {leagueId: leagueId, teamId: teamId}});
+
         let auction = await LeagueAuction.findAll({where: {leagueId: leagueId}});
         //debugger;
         res.status(200).json(auction);
@@ -141,6 +130,16 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
     }
 
 });
+
+router.get('/fighter/cumulative-stats/:id', (async(req,res) => {
+    let { id } =  req.params;
+    try {
+        let fighter = await FighterCumulativeStats.findOne({where: {fighterId: id}});
+        res.status(200).json(fighter);
+    } catch (error) {
+        res.status(400).json(error);
+    }
+}));
 
 
 const StoreFighters = async(arr)=> {

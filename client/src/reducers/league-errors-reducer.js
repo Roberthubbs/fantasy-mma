@@ -1,8 +1,8 @@
 import {
-    RECEIVE_LEAGUE_ERROR, RECEIVE_LEAGUE
+    RECEIVE_LEAGUE_ERROR, RECEIVE_LEAGUE, RESET_LEAGUE_ERRORS
 } from '../actions/league-actions';
 
-export default (state = [], action) => {
+const leagueErrorsReducer = (state = [], action) => {
     Object.freeze(state);
     switch (action.type) {
         case RECEIVE_LEAGUE_ERROR:
@@ -17,3 +17,5 @@ export default (state = [], action) => {
             return state;
     }
 };
+
+export default leagueErrorsReducer

@@ -18,7 +18,6 @@ const Notifications = (props) => {
         
     }
     if (!notifications.length){
- //       debugger;
         getNoti()
     }
    

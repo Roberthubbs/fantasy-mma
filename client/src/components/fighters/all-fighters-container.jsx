@@ -3,7 +3,6 @@ import Fighters from './all-fighters';
 import { connect } from 'react-redux';
 
 const mstp = (state) => {
-    debugger;
     return {
         fighters: Object.values(state.entities.fighters)
     }

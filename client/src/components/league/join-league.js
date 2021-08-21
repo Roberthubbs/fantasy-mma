@@ -67,7 +67,7 @@ export default class JoinLeagueRequest extends Component{
                                                 className="bid-input" />
                     <ul>
                     {this.state.leagues.length ? (this.state.leagues.map((league) => (
-                        <li className='league-list'> <button className='select-league' onClick={(e => { this.setState({ selectedLeague: { leagueName: league.leagueIdString, leagueId: league.id, adminId: league.teamId, userId: this.props.userId}})})}>{league.leagueIdString} {league.teamId}</button></li>
+                        <li className='league-list'> <button className='select-league' onClick={(e => { this.setState({ selectedLeague: { leagueName: league.leagueIdString, leagueId: league.leagueId, adminId: league.teamId, userId: this.props.userId}})})}>{league.leagueIdString} {league.teamId}</button></li>
                     ))) : null}
                     </ul>
 

@@ -4,7 +4,6 @@ const allHeaders = {
 };
 
 export const getUserNotifs = async(userId) => {
-    debugger;
     return await axios.request(`/notifications/${userId}`, {
         method: 'get',
         headers: allHeaders

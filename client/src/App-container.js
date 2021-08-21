@@ -5,7 +5,7 @@ import App from './App.js';
 const mapStateToProps = (state) => {
     //debugger;
     return {
-        leagueId: state.entities.league.id,
+        leagueId: state.entities.league.leagueId,
         userId: state.session.id
     };
 };

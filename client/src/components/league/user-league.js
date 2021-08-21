@@ -7,7 +7,7 @@ const UserLeagues = (props) => {
         if (!fetched && !leagues.length) {
             fetch(!fetched)
             props.getAllUserLeagues(props.userId).then((res) => {
-                console.log(res);
+                console.log('leagues res', res);
                 changeLeagues(res.userLeagues.data)
             });
         }
@@ -33,7 +33,7 @@ const UserLeagues = (props) => {
             <ul className='your-leagues-list'>
                 <li className='leagues-li-top'><button onClick={clickLeagues} className='your-leagues-btn'>Your Leagues</button></li>
                 {leagues.map((league) => (
-                    <li className='leagues-li' onClick={(() => props.sendLeague(league.id))}><button className='your-leagues-list-btn' >{league.leagueName}</button></li>
+                    <li className='leagues-li' onClick={(() => props.sendLeague(league.leagueId))}><button className='your-leagues-list-btn' >{league.leagueName}</button></li>
                 ))}
             </ul>
         )

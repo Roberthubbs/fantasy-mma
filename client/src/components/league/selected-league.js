@@ -6,7 +6,6 @@ export default function SelectedLeague(props){
     
     const sendJoinRequest = () => {
         const { leagueName, leagueId, adminId, userId } = props.selectedLeague;
-        debugger;
         props.joinLeague(userId, leagueName, leagueId, adminId, requestMessage);
         switchRequest(true);
     }

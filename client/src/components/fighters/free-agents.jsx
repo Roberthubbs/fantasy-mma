@@ -7,7 +7,7 @@ export default class FreeAgents extends React.Component {
         super(props);
         this.state = {
             fighters: this.props.fighters,
-            weight: ['HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW'],
+            weight: ['All', 'HW', 'LHW', 'MW', 'WW', 'LW', 'FW', 'BW', 'FLW', 'WBW', 'WFLW', 'WSW'],
             weightClass: 'All',
             cost: 0,
             bids: []
@@ -20,34 +20,26 @@ export default class FreeAgents extends React.Component {
     }
     
     componentDidUpdate(prevProps){
-        console.log(prevProps, "prevProps");
-        console.log(this.props, "props");
-       
+
         if (prevProps.match.params.leagueId !== this.props.leagueId){
             this.props.fetchAllFreeAgents(this.props.leagueId);
         }
 
-        if (prevProps.fighters != this.props.fighters){
+        if (prevProps.fighters !== this.props.fighters){
             this.setState({fighters: this.props.fighters})
         }
     }
 
     bidChange(e){
- //     e.preventDefault();
         this.setState({cost: e.target.value})
     }
     dropDownChange(event) {
-        //debugger;
         this.props.fetchAllFreeAgents(this.props.leagueId, event.currentTarget.value);
 
         this.setState({ weightClass: event.currentTarget.value })
-        //console.log(this.state.selectedWeightClass);
 
     }
-    // handleClick(e, fighterId){
-    //     e.preventDefault();
-    //     this.props.addFreeAgent()
-    // }
+
     render(){
         if (!this.state.fighters){
             return(
@@ -71,15 +63,7 @@ export default class FreeAgents extends React.Component {
                     </select>
                 </div>
                 <div>{this.state.fighters.map((fighter, i) => (
-                //    <li> <div>
-                //             {/* <h2>{fighter.firstName} {fighter.lastName} #{fighter.ranking}</h2>
-                //             <h3>{fighter.lastWeight}</h3>
-                //             <h3>{fighter.wins} - {fighter.losses}</h3> */}
-                            
-                            
-                //         </div>
-                //     </li>
-                    //console.log(fighter.id)//fighterId, leagueId, teamId
+
                 <div>
                         <Fighter
                             key={i}

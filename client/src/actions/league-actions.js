@@ -7,7 +7,6 @@ export const RECEIVE_STORED_LEAGUE = "RECEIVE_STORED_LEAGUE";
 
 
 export const receiveLeague = datum => {
-    ////debugger;
     let {data} = datum
     return {
     

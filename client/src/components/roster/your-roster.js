@@ -9,7 +9,6 @@ const YourRoster = (props) => {
             setSearch(true);
 
             props.getYourRoster(props.leagueId,props.playerId).then((fighters) => {
-                debugger;
                 addYourRoster(fighters.roster.data);
             })
         }

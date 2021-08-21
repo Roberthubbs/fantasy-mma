@@ -24,7 +24,7 @@ router.post('/create-league', async(req, res) => {
 
 router.post('/league-auction/:leagueId', async(req,res) => {
     let { leagueId } = req.params;
-
+    debugger;
     try{
         let currAuction = await LeagueAuction.getCurrentAuction(leagueId)//findAll({ where: { leagueId: leagueId } });
         res.status(200).json(currAuction);

@@ -1,18 +1,15 @@
 import React, { useState } from 'react';
 import UserLeagues from '../league/user-leagues-container';
 import YourRoster from '../roster/your-roster-container';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { BrowserRouter as  Link } from 'react-router-dom';
 
 
 function GetLeagueActions(props)  {
 
-    let [refresh, refreshed] = useState(false);
-    function refreshIt() {
-        return () => refreshed(refresh => refresh + 1)
-    }
-    let [user, setUser] = useState(props.user)
 
-    if (props.currLeagueId != 'no league' && user) {
+    let [user] = useState(props.user)
+
+    if (props.currLeagueId !== 'no league' && user) {
 
         console.log('In League ID exists: ', props.currLeagueId)
 
@@ -28,7 +25,7 @@ function GetLeagueActions(props)  {
                 <YourRoster leagueId={props.currLeagueId} playerId={user} />
             </div>
         )
-    } else if (props.currLeagueId == 'no league' && user) {
+    } else if (props.currLeagueId === 'no league' && user) {
 
         console.log('In League ID exists: ', props.currLeagueId)
 

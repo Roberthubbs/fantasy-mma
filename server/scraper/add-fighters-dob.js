@@ -42,11 +42,7 @@ const addFighters = async () => {
 
                 try {
                     console.log(id)
-                    // let fighter = await Fighter.update({ date_of_birth: dob }, {
-                    //     where: {
-                    //         id: id
-                    //     }
-                    // });
+
                     let fighterStats = await FighterCumulativeStats.findOne({where: {fighterId: id}});
                     if (fighterStats){
                         let createFighterStats = await FighterCumulativeStats.update({
@@ -86,11 +82,7 @@ const addFighters = async () => {
                         })
                     }
 
-                    //await fighter.save();
-                    // let fighter = await Fighter.findOne({where: {id: id}})
-                    // fighter = await fighter.update({link: link});
-                    // fighter.save();
-                    // console.log(fighter);
+
                 } catch (error) {
                     console.log("Error saving: ", error)
                 }

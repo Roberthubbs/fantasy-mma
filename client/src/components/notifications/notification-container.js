@@ -15,7 +15,6 @@ const mstp = (state, ownProps) => {
 const mdtp = dispatch => ({
     getNotifications: (userId) => dispatch(fetchUserNotifs(userId)),
     respond: (userId, response, requestId) => dispatch(respondToJoinRequest(userId, response, requestId))
-  //  fetchAllBids: (leagueId) => dispatch(fetchAllBids(leagueId))
 })
 
 export default connect(mstp, mdtp)(Notifications);

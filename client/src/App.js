@@ -1,8 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useContext, useReducer, useState } from "react";
-//import leagueReducer from './reducers/league-reducer';
-//import GetLeague from './components/league/get-league-container';
+
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 import GetLinksMenu from './components/menus/get-links-menu-container';
 import Fighters from './components/fighters/all-fighters-container';
@@ -13,10 +12,8 @@ import CreateLeague from './components/league/create-league-container';
 import LeagueAuction from './components/league/league-action-container';
 import JoinLeagueRequest from './components/league/join-league-container';
 import Notifications from './components/notifications/notification-container';
-import GetLeagueActions from './components/menus/get-league-actions';
-import UserLeagues from './components/league/user-leagues-container';
+
 import YourRoster from './components/roster/your-roster-container';
-import Logout from './components/user/logout-button-container';
 import { AuthRoute } from './utils/route-util';
 import StoredLeague from './components/league/stored-league-container';
 import axios from 'axios';
@@ -31,6 +28,13 @@ const addStoredLeague = async (teamId, leagueId) => {
     headers: allHeaders
   })
 }
+
+const getStoredLeague = async (teamId) => {
+   return await axios.request(`/get-current-league/${teamId}`, {
+        method: "get",
+        headers: allHeaders
+    })
+};
 function App(props) {
 
   let [showLinks, setLinks] = useState(false);
@@ -39,7 +43,6 @@ function App(props) {
   
   const changeLeague = async(val) => {
     await addStoredLeague(props.user, val);
-    debugger;
     setCurrLeague(val);
     
   };
@@ -50,7 +53,9 @@ function App(props) {
     refreshed(!refresh)
   }
   console.log('app props', props);
-  
+  getStoredLeague(props.user).then((res) => {
+    setCurrLeague(res.data.leagueId)
+  })
   console.log('state league id global', currLeagueId)
   return (
     <div className="App">
@@ -59,9 +64,9 @@ function App(props) {
           
             <header className="app-header">             
               <div className='header-links'>
-                <StoredLeague receiveLeague={getLeagueId} />
+          <StoredLeague receiveLeague={getLeagueId} />
                 
-          <GetLinksMenu user={props.user} forceRefresh={forceRefresh} currLeagueId={props.currLeagueId}
+          <GetLinksMenu user={props.user} forceRefresh={forceRefresh} currLeagueId={currLeagueId}
             changeLeague={changeLeague}/>
                
               </div>
@@ -69,7 +74,7 @@ function App(props) {
                 <Link to="/all" className='general-link-class'>All Fighters</Link>
               </div>
             </header>
-       
+
         
           <div>
           <Switch>

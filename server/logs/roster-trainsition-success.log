@@ -1,5 +1,4 @@
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -9,12 +8,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -24,12 +20,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -39,12 +32,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -54,12 +44,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -69,12 +56,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -84,12 +68,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -99,12 +80,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -114,12 +92,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -129,12 +104,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -144,12 +116,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -159,12 +128,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -174,12 +140,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -189,12 +152,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -204,12 +164,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -219,12 +176,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -234,12 +188,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -249,12 +200,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -264,12 +212,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -279,12 +224,9 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [],
+[ [],
   Result {
     command: 'SELECT',
     rowCount: 0,
@@ -294,59 +236,83 @@
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
+    rowAsArray: false } ]
 []
-[
-  [
-    { fighterId: 1283, array_agg: [Array] },
+[ [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[]
+[ [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[]
+[ [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[]
+[ [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[]
+[ [],
+  Result {
+    command: 'SELECT',
+    rowCount: 0,
+    oid: null,
+    rows: [],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[{"bidId":35,"fighterId":4482,"bidCost":4,"bidTime":"2021-08-15T16:43:32.782Z","leagueId":26,"teamId":6,"firstName":"Oleksiy","lastName":"Oliynyk","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstanro"}]
+[ [ { fighterId: 1283, array_agg: [Array] },
     { fighterId: 1289, array_agg: [Array] },
-    { fighterId: 4474, array_agg: [Array] },
-    { fighterId: 4475, array_agg: [Array] }
-  ],
+    { fighterId: 4475, array_agg: [Array] } ],
   Result {
     command: 'SELECT',
-    rowCount: 4,
+    rowCount: 3,
     oid: null,
-    rows: [ [Object], [Object], [Object], [Object] ],
+    rows: [ [Object], [Object], [Object] ],
     fields: [ [Field], [Field] ],
     _parsers: [ [Function: parser], [Function: parseStringArray] ],
     _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
     RowCtor: null,
-    rowAsArray: false
-  }
-]
-[{"bidId":32,"fighterId":4475,"bidCost":9,"bidTime":"2021-05-05T21:49:51.697Z","leagueId":1,"teamId":1,"firstName":"Derrick","lastName":"Lewis","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn","children":["sturgeonstannn$5","sturgeonstannn$7","sturgeonstannn$8","sturgeonstannn$6","sturgeonstannn$4"]},{"bidId":33,"fighterId":4474,"bidCost":5,"bidTime":"2021-05-05T21:49:58.473Z","leagueId":1,"teamId":1,"firstName":"Andrei","lastName":"Arlovski","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn","children":["sturgeonstannn$4","sturgeonstannn$4"]}]
-[
-  [],
-  Result {
-    command: 'SELECT',
-    rowCount: 0,
-    oid: null,
-    rows: [],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false
-  }
-]
-[]
-[
-  [],
-  Result {
-    command: 'SELECT',
-    rowCount: 0,
-    oid: null,
-    rows: [],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false
-  }
-]
-[]
-5/7/2021, 10:54:12 AM: SUCCESS: 1, player: 1, fighter: 4475
-5/7/2021, 10:54:12 AM: SUCCESS: 1, player: 1, fighter: 4474
+    rowAsArray: false } ]
+[{"bidId":31,"fighterId":4475,"bidCost":8,"bidTime":"2021-05-05T21:49:50.721Z","leagueId":1,"teamId":1,"firstName":"Derrick","lastName":"Lewis","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn","children":["sturgeonstannn$5","sturgeonstannn$4","sturgeonstannn$6","sturgeonstannn$7"]},{"bidId":28,"fighterId":4474,"bidCost":4,"bidTime":"2021-05-05T21:49:16.179Z","leagueId":1,"teamId":1,"firstName":"Andrei","lastName":"Arlovski","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn"},{"bidId":34,"fighterId":4474,"bidCost":4,"bidTime":"2021-05-05T21:50:22.710Z","leagueId":1,"teamId":1,"firstName":"Andrei","lastName":"Arlovski","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn"}]
+8/20/2021, 8:16:00 PM: SUCCESS: 26, player: 6, fighter: 4482
+8/20/2021, 8:16:00 PM: SUCCESS: 1, player: 1, fighter: 4475
+8/20/2021, 8:16:00 PM: SUCCESS: 1, player: 1, fighter: 4474
+8/20/2021, 8:16:00 PM: SUCCESS: 1, player: 1, fighter: 4474
