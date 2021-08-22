@@ -1,8 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import React, { useContext, useReducer, useState } from "react";
-
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import NewsFeed from './components/news/tweets';
 import GetLinksMenu from './components/menus/get-links-menu-container';
 import Fighters from './components/fighters/all-fighters-container';
 import FreeAgents from './components/fighters/free-agent-container';
@@ -12,7 +12,7 @@ import CreateLeague from './components/league/create-league-container';
 import LeagueAuction from './components/league/league-action-container';
 import JoinLeagueRequest from './components/league/join-league-container';
 import Notifications from './components/notifications/notification-container';
-
+import FighterPage from './components/fighters/fighter-page-container'
 import YourRoster from './components/roster/your-roster-container';
 import { AuthRoute } from './utils/route-util';
 import StoredLeague from './components/league/stored-league-container';
@@ -71,6 +71,8 @@ function App(props) {
                
               </div>
               <div className='header-links'>
+                <Link to="/news-feed" className='general-link-class'>#News</Link>
+                <br />
                 <Link to="/all" className='general-link-class'>All Fighters</Link>
               </div>
             </header>
@@ -79,7 +81,9 @@ function App(props) {
           <div>
           <Switch>
             <Route path='/all' component={Fighters} /> 
+            <Route path='/news-feed' component={NewsFeed} /> 
             <Route path='/free-agents/:leagueId' component={FreeAgents} />
+            <Route path='/fighter/cumulativestats/:id' component={FighterPage} />
             <Route path='/create-league' component={CreateLeague} />
             <Route path='/join-league' component={JoinLeagueRequest} />
             <Route path='/notifications' component={Notifications} />

@@ -4,7 +4,7 @@ const chalk = require("chalk");
 const fs = require("fs");
 const error = chalk.bold.red;
 const success = chalk.keyword("green");
-const links = require('./fighter-dob.json');
+const links = require('/Users/roberthubert/Desktop/mma-fantasy/non-picked-fighter-dob.json');
 const { Fighter } = require('../models');
 
 const scrape = async() => {

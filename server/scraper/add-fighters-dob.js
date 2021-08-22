@@ -1,4 +1,4 @@
-const fighters = require('./fighters-collected-stats.json');
+const fighters = require('/Users/roberthubert/Desktop/mma-fantasy/fighters-collected-stats.json');
 const { Fighter, FighterCumulativeStats } = require('../models');
 // "fighterId": 4474,
 //  "height": "6' 3\"", 
@@ -37,13 +37,14 @@ const addFighters = async () => {
                 tddef = fer["tddef"],
                 subattperfifteen = fer["subattperfifteen"],
                 nickname = fer["nickname"],
-                record = fer["nickname"];
+                record = fer["record"];
                 let dob = new Date(fer["dob"]);
 
                 try {
                     console.log(id)
 
                     let fighterStats = await FighterCumulativeStats.findOne({where: {fighterId: id}});
+                    let fighter = await Fighter.findOne({where: {id: id}});
                     if (fighterStats){
                         let createFighterStats = await FighterCumulativeStats.update({
                             fighterId,
@@ -60,7 +61,8 @@ const addFighters = async () => {
                              tddef, 
                              subattperfifteen, 
                              nickname,
-                             record
+                             record,
+                             fighter_name: fighter.fullName
                         }, {where: { fighterId: fighterId}})
                     } else {
                         let createFighterStats = await FighterCumulativeStats.create({
@@ -78,7 +80,8 @@ const addFighters = async () => {
                             tddef,
                             subattperfifteen,
                             nickname,
-                            record
+                            record,
+                            fighter_name: fighter.fullName
                         })
                     }
 

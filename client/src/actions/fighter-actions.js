@@ -4,7 +4,7 @@ export const RECEIVE_ALL_FIGHTERS = "RECEIVE_ALL_FIGHTERS";
 export const RECEIVE_ALL_FREE_AGENTS = "RECEIVE_ALL_FREE_AGENTS";
 export const ADD_FREE_AGENTS = "ADD_FREE_AGENTS";
 export const ADD_FIGHTER = "ADD_FIGHTER";
-
+export const RECEIVE_FIGHTER = "RECEIVE_FIGHTER"
 export const receiveAllFighters = fighters => ({
     type: 'RECEIVE_ALL_FIGHTERS',
     fighters

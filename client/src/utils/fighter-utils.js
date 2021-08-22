@@ -32,8 +32,9 @@ export const addFreeAgents = async(fighterId, leagueId, teamId, cost) => {
 };
 
 export const getFightersStats = async(id) => {
+    debugger;
     return await axios.request(`/fighter/cumulative-stats/${id}`, {
-        method: "get",
+        method: "post",
         headers: allHeaders
     })
 }

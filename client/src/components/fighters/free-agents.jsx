@@ -1,6 +1,7 @@
 import React from 'react';
 import Fighter from './fighter';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
+import FighterPage from './fighter-page';
 
 export default class FreeAgents extends React.Component {
     constructor(props){
@@ -74,11 +75,15 @@ export default class FreeAgents extends React.Component {
                             wins={fighter.wins}
                             losses={fighter.losses}
                         />
+                        <br />
+                        <Link to={`/fighter/cumulativestats/${fighter.id}`}>Fighters Page</Link>
+
                         {fighter.current_bid ? 
                         <div>
                         <p>Current Bid: {fighter.current_bid}</p> 
                         <br />
                         <Link to={`/league-auction/${this.props.leagueId}`}>To Auction</Link>
+                        <br />
                         </div>
                         : 
                         <div>

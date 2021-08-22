@@ -7,8 +7,12 @@ const fightersReducer = (state = {}, action) => {
             return merge({}, action.fighters.data);
         case RECEIVE_ALL_FREE_AGENTS:
             return merge({}, action.fighters.data);
-        case RECEIVE_FIGHTER:
-            return merge({}, {[action.fighters.data.id]: action.fighters.data})
+        // case RECEIVE_FIGHTER:
+        //     debugger;
+            
+        //         return merge({},  action.fighter.data)
+
+            
         default:
             return state;
     }

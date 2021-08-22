@@ -131,15 +131,17 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
 
 });
 
-router.get('/fighter/cumulative-stats/:id', (async(req,res) => {
+router.get('/fighter/cumulative-stats/:id', async(req,res) => {
     let { id } =  req.params;
+    debugger;
     try {
-        let fighter = await FighterCumulativeStats.findOne({where: {fighterId: id}});
+        let fighter = await FighterCumulativeStats.findOne({where: {fighterId: parseInt(id)}});
+
         res.status(200).json(fighter);
     } catch (error) {
         res.status(400).json(error);
     }
-}));
+});
 
 
 const StoreFighters = async(arr)=> {

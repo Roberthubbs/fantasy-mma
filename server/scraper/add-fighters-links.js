@@ -1,4 +1,4 @@
-const fighters = require('./fighter-dob.json');
+const fighters = require('/Users/roberthubert/Desktop/mma-fantasy/non-picked-fighter-dob.json');
 const { Fighter } = require('../models');
 const sequelize = require('sequelize');
 const addFighters = async () => {

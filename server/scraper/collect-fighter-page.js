@@ -29,7 +29,8 @@ const scrape = async() => {
         let links = [];
 
         for (let i = 0; i < fighters.length; i++){
-            console.log(i);
+            
+                console.log(i);
             // console.log(fighters[i]["lastName"]);
             let lastName = fighters[i]["lastName"]
             lastName = lastName.replace(/[^a-zA-Z]/, "");
@@ -38,14 +39,13 @@ const scrape = async() => {
             let searchQuery = lastName;
             let tempUrl = 'http://ufcstats.com/statistics/fighters/search?query='+searchQuery;
             let id = fighters[i]["id"]
+            console.log(fighters[i]["firstName"])
             console.log(tempUrl)
             await page.goto(tempUrl);
             await page.waitForSelector('body');
-            
             let search = await page.evaluate(async(lastName, firstName, weight, id) => {
                 let table = document.querySelector('body > section > div > div > div > table > tbody');
                 //todo search through the table for fighters that match
-                
                 let tableRows = table.children;
                 if (table.children.length < 2){
                     link = { fighterName: firstName + ' ' + lastName, weightClass: weight, id: id };
@@ -95,7 +95,7 @@ const scrape = async() => {
                         }    
                         else if (weight == 'WBW'){
                             
-                                range = [125, 136];
+                                range = [125.1, 136];
                         }    
                         else if (weight == 'FLW'){
                             
@@ -128,25 +128,26 @@ const scrape = async() => {
                                 
                                 link = { fighterName: firstName + ' ' + lastName, weightClass: weight, id: id, link: link };
                                 return link
-                            } else {
-                                return;
-                            }
+                            } 
                         } else if (j == tableRows.length-1){
                             link = { fighterName: firstName + ' ' + lastName, weightClass: weight, id: id, link: 'none' };
                             return link;
-                        }
+                        } 
                         
                     }
                 }
 
             }, lastName, firstName, weight, id)
             links.push(search);
-        }
+        
+            }
+            
         await browser.close();
         // Writing the fighters links inside a json file
 
-        fs.writeFile("fighter-dob.json", JSON.stringify(links), function (err) {
+        fs.writeFile("non-picked-fighter-dob.json", JSON.stringify(links), function (err) {
             if (err) throw err;
+            console.log(links);
             console.log("Saved!");
         });
     } catch (err) {

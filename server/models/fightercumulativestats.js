@@ -29,7 +29,8 @@ module.exports = (sequelize, DataTypes) => {
     tddef: DataTypes.STRING,
     subattperfifteen: DataTypes.STRING,
     nickname: DataTypes.STRING,
-    record: DataTypes.STRING
+    record: DataTypes.STRING,
+    fighter_name: DataTypes.STRING
   }, {
     sequelize,
     modelName: 'FighterCumulativeStats',
