@@ -1,0 +1,81 @@
+#get-links-div {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 40px;
+    padding-top: 10px;
+}
+#left-bar{
+    align-self: left;
+    width: 200px;
+    background-color: grey;
+}
+#roster-league-div{
+   /* position: fixed; */
+    /* padding-right: 200px; */
+    /* display: flex;
+    justify-content: start;
+    align-items: center;
+    background-color: rgb(183, 247, 181);
+    width: 250px; */
+    background-color: rgba(191, 217, 235, 0.466);
+      width: 150px;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      position: fixed;
+      top: 0;
+      border-radius: 10px;
+      /* left: -100%;
+      transition: 850ms; */
+      margin-top: 118px;
+}
+.logout-button{
+    border-style: none;
+    background-color: inherit;
+    text-decoration: none;
+    font-size: 16px;
+}
+.header-icon{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    left: 40px;
+    top: 10px;
+}
+.roster-div{
+    display: flex;
+    border-bottom: 1px solid lightskyblue;
+    background-color: rgba(213, 233, 246, 0.466);
+    padding-top: 5px;
+    padding-bottom:5px;
+    margin-left: 100px;
+    padding-left: 100px;
+    margin-right: 100px;
+    padding-right:100px;
+
+}
+.your-roster {
+    margin: 0 auto;
+}
+.player-div{
+    border: 1px solid rgb(233, 154, 7, .9);
+    margin-bottom: 0px;
+    padding: 8px;
+    background-color: rgba(248, 216, 158, 0.9);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    color: rgba(187, 145, 6, 0.9);
+    margin-left: 100px;
+    padding-left: 100px;
+    margin-right: 100px;
+    padding-right:100px;
+}
+.your-roster-header{
+    text-align: center;
+}
+
+@media screen and (max-width: 1100px){
+    .header-icon{
+        display: none;
+    }
+}

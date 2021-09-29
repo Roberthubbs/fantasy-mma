@@ -10,9 +10,12 @@ import LoginContainer from './components/login-container';
 import RegisterContainer from './components/sign-up-container';
 import CreateLeague from './components/league/create-league-container';
 import LeagueAuction from './components/league/league-action-container';
+import UserLeagues from './components/league/user-leagues-container';
+import SideMenu from './components/menus/side-menu';
 import JoinLeagueRequest from './components/league/join-league-container';
 import Notifications from './components/notifications/notification-container';
-import FighterPage from './components/fighters/fighter-page-container'
+import FighterPage from './components/fighters/fighter-page-container';
+import LeagueHomePlayers from './components/league/league-home-container';
 import YourRoster from './components/roster/your-roster-container';
 import { AuthRoute } from './utils/route-util';
 import StoredLeague from './components/league/stored-league-container';
@@ -61,24 +64,31 @@ function App(props) {
     <div className="App">
       
        
-          
-            <header className="app-header">             
-              <div className='header-links'>
-          <StoredLeague receiveLeague={getLeagueId} />
-                
-          <GetLinksMenu user={props.user} forceRefresh={forceRefresh} currLeagueId={currLeagueId}
-            changeLeague={changeLeague}/>
-               
-              </div>
-              <div className='header-links'>
-                <Link to="/news-feed" className='general-link-class'>#News</Link>
-                <br />
-                <Link to="/all" className='general-link-class'>All Fighters</Link>
-              </div>
-            </header>
+    
+          <header className="app-header">      
 
-        
+              <div className='header-links'>
+              
+              <StoredLeague receiveLeague={getLeagueId} />
+                    
+              <GetLinksMenu user={props.user} forceRefresh={forceRefresh} currLeagueId={currLeagueId}
+                changeLeague={changeLeague}/>
+                  
+              {/* </div>
+              <div className='header-links'> */}
+
+              </div>
+          </header>
+
           <div>
+            <SideMenu user={props.user} forceRefresh={forceRefresh} currLeagueId={currLeagueId} changeLeague={changeLeague}/>
+          </div>
+          {/* <div>
+              <YourRoster leagueId={currLeagueId} playerId={props.user} />
+
+          </div> */}
+
+          <div className='body-div'>
           <Switch>
             <Route path='/all' component={Fighters} /> 
             <Route path='/news-feed' component={NewsFeed} /> 
@@ -87,6 +97,7 @@ function App(props) {
             <Route path='/create-league' component={CreateLeague} />
             <Route path='/join-league' component={JoinLeagueRequest} />
             <Route path='/notifications' component={Notifications} />
+            <Route path='/league-home-players' component={LeagueHomePlayers} />
             <Route path='/league-auction/:leagueId' component={LeagueAuction}/>
             <AuthRoute exact path="/register" component={RegisterContainer} />
             <AuthRoute exact path="/login" component={LoginContainer} />

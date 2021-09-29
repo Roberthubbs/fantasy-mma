@@ -54,4 +54,11 @@ export const userLeaguesSelection = async(userId) => {
         method: "get",
         headers: allHeaders
     })
-}
+};
+
+export const getLeagueData = async(leagueId) => {
+    return axios.request(`/league-home-players/${leagueId}`, {
+        method: "get",
+        headers: allHeaders
+    })
+};

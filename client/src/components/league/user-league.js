@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 const UserLeagues = (props) => {
     let [clicked, click] = useState(false);
     let [fetched, fetch] = useState(false);
@@ -35,6 +36,7 @@ const UserLeagues = (props) => {
                 {leagues.map((league) => (
                     <li className='leagues-li' onClick={(() => props.sendLeague(league.leagueId))}><button className='your-leagues-list-btn' >{league.leagueName}</button></li>
                 ))}
+                <li className='your-leagues-list-btn'><Link to={`/join-league`} className='general-link-class'>Join A League</Link></li>
             </ul>
         )
     }

@@ -9,7 +9,7 @@ function Logout (props) {
     }
     if (props.user){
         return (
-            <button onClick={() => props.logout({user: {id: props.user, password: props.pw}}).then(refreshIt).then(() => history.push('/all'))}>Logout</button>
+            <button className='logout-button' onClick={() => props.logout({user: {id: props.user, password: props.pw}}).then(refreshIt).then(() => history.push('/all'))}>Logout</button>
         )
     } else {
         return (<div></div>)

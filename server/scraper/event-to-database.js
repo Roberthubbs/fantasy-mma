@@ -1,4 +1,4 @@
-import addFights from './db-transactions-latest';
+const { addFights } = require('./db-transactions-latest');
 const axios = require('axios');
 const cheerio = require('cheerio');
 let fightsArr = [];
@@ -177,7 +177,15 @@ const { Events } = require('../models');
                         sigs = el.lastElementChild.innerText.trim().split(' of ');
                         fighterTwo.sigLanded = sigs[0];
                         fighterTwo.sigAttempted = sigs[1];
-                    } else if (idx ==5){
+                    } else if (idx == 4){
+                        let total = el.firstElementChild.innerText.trim().split(' of ');
+                        fighterOne.totalLanded = total[0];
+                        fighterOne.totalAttempted = total[1];
+                        total = el.lastElementChild.innerText.trim().split(' of ');
+                        fighterTwo.totalLanded = total[0];
+                        fighterTwo.totalAttempted = total[1];
+                    }  
+                    else if (idx ==5){
                         let tds = el.firstElementChild.innerText.trim().split(' of ');
                         fighterOne.tdLanded = tds[0];
                         fighterOne.tdAttempted = tds[1];
@@ -215,10 +223,13 @@ const { Events } = require('../models');
                 let fighterOneDob = await page.evaluate(async () => {
                     return document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(5)').innerText;
                 })
-                debugger;
+                console.log(fight[i], ": 226 Fight Printed")
+
+                fight[i]['fighterOne']['dob'] = fighterOneDob;
+                fight[i]['fighterTwo']['dob'] = fighterTwoDob;
                 fights[fights.length - 1][i]['fighterOne']['dob'] = fighterOneDob;
                 fights[fights.length - 1][i]['fighterTwo']['dob'] = fighterTwoDob;
-
+                addFights(fight, i);
             }
         }
             
@@ -232,13 +243,13 @@ const { Events } = require('../models');
         
         await browser.close();
         
-        // fs.writeFile("recent-fight-data.json", JSON.stringify(fights), function (err) {
-        //     if (err) throw err;
-        //     console.log("Saved!");
-        // });
-        fights.forEach(async(fight) => {
-            await addFights(fight);
-        })
+        fs.writeFile("recent-fight-data.json", JSON.stringify(fights), function (err) {
+            if (err) throw err;
+            console.log("Saved!");
+        });
+        // fights.forEach(async(fight) => {
+        //     await addFights(fight);
+        // })
         console.log(success("Browser Closed"));
         
     } catch (err) {

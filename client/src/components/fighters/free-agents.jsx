@@ -63,7 +63,7 @@ export default class FreeAgents extends React.Component {
 
                     </select>
                 </div>
-                <div>{this.state.fighters.map((fighter, i) => (
+                <div className='all-fighters-grid'>{this.state.fighters.map((fighter, i) => (
 
                 <div>
                         <Fighter

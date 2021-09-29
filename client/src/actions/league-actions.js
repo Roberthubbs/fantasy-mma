@@ -4,7 +4,7 @@ export const RECEIVE_LEAGUE = "RECEIVE_LEAGUE";
 export const RECEIVE_LEAGUE_ERROR = "RECEIVE_LEAGUE_ERROR";
 export const RECEIVE_USER_LEAGUES = "RECEIVE_USER_LEAGUES";
 export const RECEIVE_STORED_LEAGUE = "RECEIVE_STORED_LEAGUE";
-
+export const RECEIVE_LEAGUE_HOME_PLAYERS = "RECEIVE_LEAGUE_HOME_PLAYERS";
 
 export const receiveLeague = datum => {
     let {data} = datum
@@ -33,6 +33,10 @@ export const receiveErrors = errors => ({
     errors
 });
 
+export const receiveLeagueHomePlayers = players => ({
+    type: RECEIVE_LEAGUE_HOME_PLAYERS,
+    players
+});
 
 export const createLeague = (leagueName, teamId, maxPlayerCount, leagueStartDate, leagueEndDate, eventTotal) => dispatch =>(
     LeagueUtils.addLeague(leagueName, teamId, maxPlayerCount, leagueStartDate, leagueEndDate, eventTotal).then((league) => (
@@ -67,6 +71,14 @@ export const slr = (userId, leagueName, leagueId, teamId, requestMessage) => dis
 export const getAllUserLeagues = (userId) => dispatch => (
     LeagueUtils.userLeaguesSelection(userId).then((leagues) => (
         dispatch(receiveUsersLeagues(leagues), err => (
+            dispatch(receiveErrors(err))
+        ))
+    ))
+);
+
+export const getLeaguePlayers = (leagueId) => dispatch => (
+    LeagueUtils.getLeagueData(leagueId).then((res) => (
+        dispatch(receiveLeagueHomePlayers(res), err => (
             dispatch(receiveErrors(err))
         ))
     ))

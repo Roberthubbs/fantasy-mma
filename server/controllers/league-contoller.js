@@ -105,7 +105,21 @@ router.get(`/get-current-league/:teamId`, async(req, res) => {
             res.status(400).json(error);
         }
     }
+});
+
+router.get(`/league-home-players/:leagueId`, async(req, res) => {
+    debugger;
+    let { leagueId } = req.params;
+    console.log(leagueId);
+    try {
+        let leagueData = await UserLeague.getLeagueHome(leagueId);
+        console.log("leagueData Found: ", leagueData);
+        res.status(200).json(leagueData);
+    } catch(error) {
+        res.status(200).json(error);
+    }
 })
+
 router.get(`/user/leagues/:userId`, async(req, res) => {
     let { userId } = req.params;
     debugger;

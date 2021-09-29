@@ -1,6 +1,6 @@
 import merge from 'lodash/merge';
 import { RECEIVE_NOTIFICATIONS } from '../actions/notification-actions';
-const leagueReducer = (state = {}, action) => {
+const notificationReducer = (state = {}, action) => {
     Object.freeze(state);
 
     switch (action.type) {
@@ -13,4 +13,4 @@ const leagueReducer = (state = {}, action) => {
 
 }
 
-export default leagueReducer;
+export default notificationReducer;

@@ -23,7 +23,7 @@ const YourRoster = (props) => {
         return (
             <div className='your-roster'>
                 <span className='notif-header-span'>
-                    <h4 className='your-roster-header'>Your Roster: </h4>
+                    <h4 className='your-roster-header'>Roster: </h4>
                 </span>
                 {yourRoster.map((fighter) => (
                     <div>

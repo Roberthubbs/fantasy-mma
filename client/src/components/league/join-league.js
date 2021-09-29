@@ -34,12 +34,14 @@ export default class JoinLeagueRequest extends Component{
                     console.log(error);
                     this.setState({ isFetching: false });
                 });
+        } else if (this.state.leagueName.length === 0){
+            this.setState({leagues: []})
         }
         
 
     }
     handleSearch = (e) => {
-        
+        debugger;
         this.setState({leagueName: e.target.value}, this.fetchLeaguesAPI);
         //this.fetchLeaguesAPI(this.state.leagueName);
     }
@@ -65,7 +67,7 @@ export default class JoinLeagueRequest extends Component{
                                                 value={this.state.leagueName}
                                                 onChange={this.handleSearch}
                                                 className="bid-input" />
-                    <ul>
+                    <ul id='league-list-master'>
                     {this.state.leagues.length ? (this.state.leagues.map((league) => (
                         <li className='league-list'> <button className='select-league' onClick={(e => { this.setState({ selectedLeague: { leagueName: league.leagueIdString, leagueId: league.leagueId, adminId: league.teamId, userId: this.props.userId}})})}>{league.leagueIdString} {league.teamId}</button></li>
                     ))) : null}
