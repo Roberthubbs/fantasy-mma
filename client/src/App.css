@@ -1,6 +1,8 @@
 @import url('auction.css');
 @import url('league.css');
 @import url('header.css');
+@import url('fighter.css');
+@import url('fights.css');
 .App {
   text-align: center;
   background-color: rgba(245, 245, 245, 0.644);

@@ -36,7 +36,7 @@ export default function LeagueHomePlayers (props) {
                         
                         
                         <div className="roster-div">
-                            <YourRoster leagueId={player.leagueId} playerId={player.teamId} />
+                            <YourRoster leagueId={player.leagueId} playerId={player.ulteamId} />
                             
                         </div>
                     

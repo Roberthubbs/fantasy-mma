@@ -238,6 +238,30 @@
     RowCtor: null,
     rowAsArray: false } ]
 []
+[ [ { fighterId: 4486, array_agg: [Array] } ],
+  Result {
+    command: 'SELECT',
+    rowCount: 1,
+    oid: null,
+    rows: [ [Object] ],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[]
+[ [ { fighterId: 4486, array_agg: [Array] } ],
+  Result {
+    command: 'SELECT',
+    rowCount: 1,
+    oid: null,
+    rows: [ [Object] ],
+    fields: [ [Field], [Field] ],
+    _parsers: [ [Function: parser], [Function: parseStringArray] ],
+    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
+    RowCtor: null,
+    rowAsArray: false } ]
+[{"bidId":43,"fighterId":4486,"bidCost":6,"bidTime":"2021-10-01T12:03:29.889Z","leagueId":27,"teamId":15,"firstName":"Marcos","lastName":"Rogerio","lastWeight":"HW","nextOpponent":"Maurice Greene","usernameOfBidder":"tester10","children":["tester1$5"]},{"bidId":41,"fighterId":4482,"bidCost":5,"bidTime":"2021-10-01T11:49:35.514Z","leagueId":27,"teamId":7,"firstName":"Oleksiy","lastName":"Oliynyk","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"tester1"},{"bidId":39,"fighterId":4565,"bidCost":4,"bidTime":"2021-09-30T23:12:48.610Z","leagueId":27,"teamId":7,"firstName":"Kelvin","lastName":"Gastelum","lastWeight":"MW","nextOpponent":"Robert Whittaker - UFC Vegas 24","usernameOfBidder":"tester1"},{"bidId":40,"fighterId":4577,"bidCost":4,"bidTime":"2021-09-30T23:13:11.617Z","leagueId":27,"teamId":7,"firstName":"Jared","lastName":"Cannonier","lastWeight":"MW","nextOpponent":"","usernameOfBidder":"tester1"},{"bidId":42,"fighterId":4488,"bidCost":5,"bidTime":"2021-10-01T11:54:10.075Z","leagueId":27,"teamId":7,"firstName":"Shamil","lastName":"Abdurahimov","lastWeight":"HW","nextOpponent":"Augusto Sakai","usernameOfBidder":"tester1"}]
 [ [],
   Result {
     command: 'SELECT',
@@ -250,69 +274,8 @@
     RowCtor: null,
     rowAsArray: false } ]
 []
-[ [],
-  Result {
-    command: 'SELECT',
-    rowCount: 0,
-    oid: null,
-    rows: [],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false } ]
-[]
-[ [],
-  Result {
-    command: 'SELECT',
-    rowCount: 0,
-    oid: null,
-    rows: [],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false } ]
-[]
-[ [],
-  Result {
-    command: 'SELECT',
-    rowCount: 0,
-    oid: null,
-    rows: [],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false } ]
-[]
-[ [],
-  Result {
-    command: 'SELECT',
-    rowCount: 0,
-    oid: null,
-    rows: [],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false } ]
-[{"bidId":35,"fighterId":4482,"bidCost":4,"bidTime":"2021-08-15T16:43:32.782Z","leagueId":26,"teamId":6,"firstName":"Oleksiy","lastName":"Oliynyk","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstanro"}]
-[ [ { fighterId: 1283, array_agg: [Array] },
-    { fighterId: 1289, array_agg: [Array] },
-    { fighterId: 4475, array_agg: [Array] } ],
-  Result {
-    command: 'SELECT',
-    rowCount: 3,
-    oid: null,
-    rows: [ [Object], [Object], [Object] ],
-    fields: [ [Field], [Field] ],
-    _parsers: [ [Function: parser], [Function: parseStringArray] ],
-    _types: TypeOverrides { _types: [Object], text: {}, binary: {} },
-    RowCtor: null,
-    rowAsArray: false } ]
-[{"bidId":31,"fighterId":4475,"bidCost":8,"bidTime":"2021-05-05T21:49:50.721Z","leagueId":1,"teamId":1,"firstName":"Derrick","lastName":"Lewis","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn","children":["sturgeonstannn$5","sturgeonstannn$4","sturgeonstannn$6","sturgeonstannn$7"]},{"bidId":28,"fighterId":4474,"bidCost":4,"bidTime":"2021-05-05T21:49:16.179Z","leagueId":1,"teamId":1,"firstName":"Andrei","lastName":"Arlovski","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn"},{"bidId":34,"fighterId":4474,"bidCost":4,"bidTime":"2021-05-05T21:50:22.710Z","leagueId":1,"teamId":1,"firstName":"Andrei","lastName":"Arlovski","lastWeight":"HW","nextOpponent":"","usernameOfBidder":"sturgeonstannn"}]
-8/20/2021, 8:16:00 PM: SUCCESS: 26, player: 6, fighter: 4482
-8/20/2021, 8:16:00 PM: SUCCESS: 1, player: 1, fighter: 4475
-8/20/2021, 8:16:00 PM: SUCCESS: 1, player: 1, fighter: 4474
-8/20/2021, 8:16:00 PM: SUCCESS: 1, player: 1, fighter: 4474
+10/1/2021, 8:08:28 AM: SUCCESS: 27, player: 15, fighter: 4486
+10/1/2021, 8:08:28 AM: SUCCESS: 27, player: 7, fighter: 4565
+10/1/2021, 8:08:28 AM: SUCCESS: 27, player: 7, fighter: 4482
+10/1/2021, 8:08:28 AM: SUCCESS: 27, player: 7, fighter: 4488
+10/1/2021, 8:08:28 AM: SUCCESS: 27, player: 7, fighter: 4577

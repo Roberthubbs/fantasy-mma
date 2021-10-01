@@ -24,13 +24,12 @@ module.exports = (sequelize, DataTypes) => {
   });
 
   UserLeague.getLeagueHome = async(leagueId) => {
-    debugger;
     try {
-      let leagueData = await sequelize.query(`SELECT * FROM "UserLeagues"
+      let leagueData = await sequelize.query(`
+      SELECT "UserLeagues"."teamId" as "ulteamId", * FROM "UserLeagues"
         JOIN "Players" ON "UserLeagues"."teamId" = "Players"."id"
         JOIN "Leagues" ON "UserLeagues"."leagueId" = "Leagues"."id"
         WHERE "UserLeagues"."leagueId" = ${leagueId}`);
-      debugger;
       return leagueData[0];
     } catch(error){
       return error;

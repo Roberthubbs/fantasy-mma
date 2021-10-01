@@ -14,11 +14,9 @@ export default class LeagueAuction extends Component {
     }
 
     componentDidMount(){
-        console.log(this.props);
         if(this.state.callRefresh){
             this.setState({callRefresh: false});
             this.props.fetchAllBids(this.props.leagueId).then((res) => {
-                console.log(this.props, 'props');
                 let arr = res.bids.data;
                 arr.forEach((bid, i) => {
                     bid.bidding = bid.bidCost + 1;
@@ -52,7 +50,6 @@ export default class LeagueAuction extends Component {
         if (!this.state.bids){
             return false;
         }
-        console.log(this.state.bids);
         return (
             <div className='league-auction'>
                 <div className="auction-side-bar">
@@ -60,6 +57,7 @@ export default class LeagueAuction extends Component {
                     <br/>
                     <p className='auction-to-fa'><Link to={`/free-agents/${this.props.leagueId}`} className='fa-link'>Back To Free Agents</Link></p>
                 </div>
+                <div className='bid-cards'>
                 {this.state.bids.map((bid, i) => (
                     
                         <div className="caps-auction">
@@ -89,7 +87,7 @@ export default class LeagueAuction extends Component {
                         </div>
 
                 ))}
-                      
+                </div>      
                 
             </div>
         )

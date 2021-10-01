@@ -11,7 +11,6 @@ function GetLeagueActions(props)  {
 
     if (props.currLeagueId !== 'no league' && user) {
 
-        console.log('In League ID exists: ', props.currLeagueId)
 
         return (
             <div>
@@ -27,7 +26,6 @@ function GetLeagueActions(props)  {
         )
     } else if (props.currLeagueId === 'no league' && user) {
 
-        console.log('In League ID exists: ', props.currLeagueId)
 
         return (
 

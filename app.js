@@ -13,6 +13,8 @@ const playersController = require('./server/controllers/players-contoller.js');
 const leagueController = require('./server/controllers/league-contoller');
 const notificationsController = require('./server/controllers/notifications-controller.js');
 const rosterController = require('./server/controllers/roster-controller.js');
+const fightsController = require('./server/controllers/fights-controller.js');
+
 if (process.env.NODE_ENV === 'production') {
 
     app.use(express.static(path.join(__dirname, 'client/build')))
@@ -37,6 +39,8 @@ app.use(playersController);
 app.use(leagueController);
 app.use(notificationsController);
 app.use(rosterController);
+app.use(fightsController);
+
 
 const port = process.env.PORT || 5000;
 db.sequelize.sync().then(() => {

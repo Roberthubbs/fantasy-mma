@@ -3,7 +3,6 @@ import GetLeague from './get-league';
 import { connect } from 'react-redux';
 
 const mstp = (state, ownProps) => {
-    console.log(state);
     return {
 
         teamId: state.session.id

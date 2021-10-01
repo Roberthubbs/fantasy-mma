@@ -8,7 +8,6 @@ const UserLeagues = (props) => {
         if (!fetched && !leagues.length){
             fetch(!fetched)
             props.getAllUserLeagues(props.userId).then((res) => {
-                console.log(res);
                 changeLeagues(res.userLeagues.data)
             });
         }

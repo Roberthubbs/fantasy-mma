@@ -16,7 +16,7 @@ export const respondToLeagueJoin = async(userId, response, requestId, leagueId) 
         method: 'post',
         headers: allHeaders,
         data: {
-            userId, response, requestId
+            userId, response, requestId, leagueId
         }
     })
 }

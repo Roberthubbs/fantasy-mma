@@ -8,16 +8,7 @@ const FighterPage = (props) => {
     if (!received){
         receive(!received);
         const id = props.match.params.id
-        debugger;
-        
-        // props.fightersPage(id).then((res) => {
-        //     debugger;
-        //     updateFighter(res.data)
-        // })
-        // return await axios.request(`/fighter/cumulative-stats/${id}`, {
-        // method: "post",
-        // headers: allHeaders
-        // })
+
         fetch(`/fighter/cumulative-stats/${id}`,{
             method: 'get',
             headers: { 'Content-Type': 'application/json' },

@@ -1,4 +1,4 @@
-const { Fighter, Fight, Roster, PlayerStats, FighterOneStats } = require('../models');
+const { Fighter, Fight, Roster, PlayerStats, FighterOneStats, Points } = require('../models');
 
 module.exports = {
 
@@ -164,8 +164,9 @@ module.exports = {
                 let cfo = await FighterOneStats.create(fOO);
                 let cft = await FighterOneStats.create(fTO);
 
-                let fighterOnePlayers = await Roster.findAll({where: {fighterId: oneId} })
-                let fighterTwoPlayers = await Roster.findAll({where: {fighterId: twoId} })
+                let fighterOnePlayers = await Roster.findAll({where: {fighterId: oneId} }, {raw: true})
+                let fighterTwoPlayers = await Roster.findAll({where: {fighterId: twoId} }, {raw: true})
+
                 fighterOnePlayers.forEach(async(player) => {
                     let addBonus = 0;
                     if (fOO["champWin"]){
@@ -228,6 +229,7 @@ module.exports = {
                     addBonus,
                 }
                     let playerRecords = await PlayerStats.findOne({where: {leagueId: player.leagueId, playerId: player.teamId}});
+                    let points = await Points.findOne({where: {leagueId: player.leagueId, playerId: player.teamId}})
                     if (!playerRecords){
                         let playerId = player.teamId;
                         let leagueId = player.leagueId;
@@ -259,12 +261,30 @@ module.exports = {
                         await PlayerStats.update(stats, {where: {
                             id: playerRecords.id
                         }});
+                        let addPoints = 0;
+                        addPoints += (Math.floor(stats.takedownsnsCompleted * 5));
+                        addPoints += (Math.floor(stats.takedownsDefended * 5));
+                        addPoints += (stats.strikesLanded);
+                        if (stats.wins){
+                            addPoints += 20;
+                        }
+                        if (points){
+                            Points.update({total: points.total += addPoints}, {
+                                where: {
+                                    leagueId: player.leagueId, playerId: player.teamId
+                                }
+                            })
+                        } else {
+                            Points.create({total: addPoints, leagueId: player.leagueId, playerId: player.teamId})
+                        }
+
                     }
 
                 })
-                console.log("FIGHTER TWO PLAYERS: ", fighterOnePlayers)
-
+               
                 fighterTwoPlayers.forEach(async(player) => {
+                    console.log('player in roster loop', player)
+                    console.log('playerId', player.id)
                     let addBonus = 0;
                     if (fTO["champWin"]){
                         addBonus += 1.5;
@@ -309,11 +329,11 @@ module.exports = {
                     takedownsAttempted: fTO["takedownAttempted"],
                     takedownsnsCompleted: fTO["takedownCompleted"],
                     takeDownsAttemptedAgainst: fTO["takedownAttemptAgainst"],
-                    takedownsDefended: fTO["takedownsDefended"],
-                    strikesAttempted: fTO["totalAttempted"],
-                    strikesLanded: fTO["totalLanded"],
+                    takedownsDefended: fTO["takedownAttemptDefended"],
+                    strikesAttempted: fTO["strikesAttempted"],
+                    strikesLanded: fTO["strikesLanded"],
                     significantStrikes: fTO["significantLanded"],
-                    significantStrikesAbsorbed: fOO["significantLanded"],
+                    significantStrikesAbsorbed: fTO["significantTaken"],
                     strikesAbsorbed: fOO["strikesAbsorbed"],
                     finishes,
                     finished,
@@ -325,7 +345,10 @@ module.exports = {
                     losses,
                     addBonus,
                 }
-                    let playerRecords = await PlayerStats.findOne({where: {leagueId: player.leagueId, playerId: player.teamId}});
+                   // console.log("fTO", fTO)
+                    console.log(stats);
+                    let playerRecords = await PlayerStats.findOne({where: {leagueId: player.leagueId.toString(), playerId: player.teamId.toString()}});
+                    console.log('playerRecords: ', playerRecords)
                     if (!playerRecords){
                         let playerId = player.teamId;
                         let leagueId = player.leagueId;
@@ -338,6 +361,8 @@ module.exports = {
                             console.log(error)
                         }
                     } else {
+                        console.log("MADE IT INTO THE STATS ELSE BLOCK: ", stats)
+
                         stats.takedownsAttempted += playerRecords.takedownsAttempted
                         stats.takedownsnsCompleted += playerRecords.takedownsnsCompleted
                         stats.takeDownsAttemptedAgainst += playerRecords.takeDownsAttemptedAgainst
@@ -358,6 +383,22 @@ module.exports = {
                         await PlayerStats.update(stats, {where: {
                             id: playerRecords.id
                         }});
+                        let addPoints = 0;
+                        addPoints += (Math.floor(stats.takedownsnsCompleted * 5));
+                        addPoints += (Math.floor(stats.takedownsDefended * 5));
+                        addPoints += (stats.strikesLanded);
+                        if (stats.wins){
+                            addPoints += 20;
+                        }
+                        if (points){
+                            Points.update({total: points.total += addPoints}, {
+                                where: {
+                                    leagueId: player.leagueId, playerId: player.teamId
+                                }
+                            })
+                        } else {
+                            Points.create({total: addPoints, leagueId: player.leagueId, playerId: player.teamId})
+                        }
                     }
                 })
                 if (cfo.id && cft.id){

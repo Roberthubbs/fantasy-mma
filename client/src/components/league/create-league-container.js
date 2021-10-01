@@ -2,7 +2,6 @@ import CreateLeague from './create-league';
 import { connect } from 'react-redux';
 import {createLeague} from '../../actions/league-actions';
 const mstp = (state, ownProps) => {
-    console.log(state);
     return {
     
 

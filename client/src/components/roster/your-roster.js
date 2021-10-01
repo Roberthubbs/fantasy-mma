@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 const YourRoster = (props) => {
-    debugger;
     let [yourRoster, addYourRoster] = useState([]);
     let [searched, setSearch] = useState(false);
     const getRoster = () => {
@@ -15,7 +14,6 @@ const YourRoster = (props) => {
 
     }
     if (!yourRoster.length) {
-        //       debugger;
         getRoster();
     }
 

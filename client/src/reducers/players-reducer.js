@@ -5,7 +5,6 @@ const playersReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_LEAGUE_HOME_PLAYERS:
-            //debugger;
             return merge({}, state, action.players.data);
         default:
             return state;

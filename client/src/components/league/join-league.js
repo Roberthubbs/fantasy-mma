@@ -29,7 +29,6 @@ export default class JoinLeagueRequest extends Component{
             fetch(`/all-leagues/${this.state.leagueName}`)
                 .then(res => res.json())
                 .then(results => this.setState({ isFetching: false, leagues: results }))
-                .then(console.log(this.state.leagues))
                 .catch(error => {
                     console.log(error);
                     this.setState({ isFetching: false });
@@ -41,7 +40,6 @@ export default class JoinLeagueRequest extends Component{
 
     }
     handleSearch = (e) => {
-        debugger;
         this.setState({leagueName: e.target.value}, this.fetchLeaguesAPI);
         //this.fetchLeaguesAPI(this.state.leagueName);
     }

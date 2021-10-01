@@ -11,7 +11,6 @@ const Fighters = (props) => {
     useEffect(() => {
         if (updated){
             update(!updated)
-            console.log(selectedWeightClass);
             axios.request('/all', {
                 data: {
                     selectedWeightClass

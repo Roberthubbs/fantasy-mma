@@ -22,13 +22,11 @@ export default class CreateLeague extends Component {
     }
 
     handleStartDateChange(e){
-        console.log(e);
         this.setState({leagueStartDate: e});
 
     }
 
     handleEndDateChange(e) {
-        console.log(e);
         this.setState({ leagueEndDate: e });
 
     }

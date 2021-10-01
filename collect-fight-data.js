@@ -193,7 +193,6 @@ events.forEach((subArr) => {
             }, date, i);
 
             fights.push(fight);
-            console.log(fights);
  //           return fight;
             if (fight && fight[i]){
                 await page.goto(fight[i]['fighterTwo']['fighterLink']);
@@ -205,7 +204,6 @@ events.forEach((subArr) => {
                 let fighterOneDob = await page.evaluate(async () => {
                     return document.querySelector('body > section > div > div > div.b-list__info-box.b-list__info-box_style_small-width.js-guide > ul > li:nth-child(5)').innerText;
                 })
-                debugger;
                 fights[fights.length - 1][i]['fighterOne']['dob'] = fighterOneDob;
                 fights[fights.length - 1][i]['fighterTwo']['dob'] = fighterTwoDob;
 

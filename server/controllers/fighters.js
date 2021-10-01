@@ -9,7 +9,6 @@ router.post('/all', async(req, res) => {
     //     .pipe(csv())
     //     .on('data', async(row) => {
     //         console.log(row);
-    //      //   debugger;
     //         let wins = ''
     //         let losses = '';
     //         let seenDash = false
@@ -60,10 +59,8 @@ router.post('/all', async(req, res) => {
         //     console.log('CSV file successfully processed');
         // })
        // .catch((err) => console.log(err));
-    //debugger;
     let {selectedWeightClass} = req.body;
     //let selectedWeightClass = arr[0];
-    debugger;
     console.log(selectedWeightClass);
     let fighters
     try {
@@ -123,7 +120,6 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
         await LeagueAuction.create({leagueId: leagueId, fighterId: fighterId, bidCost: cost, bidTime: Date.now(), teamId: teamId});
 
         let auction = await LeagueAuction.findAll({where: {leagueId: leagueId}});
-        //debugger;
         res.status(200).json(auction);
     } catch(error){
         res.send('Error adding fighter', error);
@@ -133,7 +129,6 @@ router.post('/add-fighter/:fighterId/:teamId/:leagueId', async(req, res) => {
 
 router.get('/fighter/cumulative-stats/:id', async(req,res) => {
     let { id } =  req.params;
-    debugger;
     try {
         let fighter = await FighterCumulativeStats.findOne({where: {fighterId: parseInt(id)}});
 

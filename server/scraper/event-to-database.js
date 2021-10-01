@@ -34,7 +34,6 @@ const { Events } = require('../models');
             let fighterTwoLink;
             await page.goto(link)
             await page.waitForSelector('body');
-            debugger;
             let links = await page.evaluate(async() => {
                 let selector = document.querySelectorAll('a');
                 let hrefs = []

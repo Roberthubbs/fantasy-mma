@@ -12,7 +12,7 @@ function GetLinksMenu(props){
         return (
             <div >
                 
-                <img className='header-icon' src='mma-icon.png' alt=''/> 
+                <Link to={'/'}><img className='header-icon' src='mma-icon.png' alt=''/></Link>
                 <div id='get-links-div'>
                     <Link to={`/notifications`} className='general-link-class'>Your Notifications</Link>
                     <Link to={`/free-agents/${props.currLeagueId}`} className='general-link-class'>Free Agents</Link>
@@ -35,6 +35,8 @@ function GetLinksMenu(props){
 
                 <Link to="/join-league" className='general-link-class'>Join League</Link>
                 <br />
+                <div onClick={() => (setUser(null))}><Logout user={props.user} /></div>
+
                 {/* <StoredLeague /> */}
                 <UserLeagues userId={user} sendLeague={props.changeLeague} />
 

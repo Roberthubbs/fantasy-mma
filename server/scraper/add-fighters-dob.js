@@ -1,20 +1,7 @@
 const fighters = require('/Users/roberthubert/Desktop/mma-fantasy/fighters-collected-stats.json');
 const { Fighter, FighterCumulativeStats } = require('../models');
-// "fighterId": 4474,
-//  "height": "6' 3\"", 
-//  "reach": "77\"", 
-//  "stance": "Orthodox", 
-//  "dob": "Feb 04, 1979", 
-//  "sLpM": "3.62", 
-//  "slaccuracy": "44%", 
-//  "sapminute": "2.95", 
-//  "strdef": "57%", 
-//  "tdavg": "0.45", 
-//  "tdacc": "36%", 
-//  "tddef": "78%", 
-//  "subattperfifteen": "0.2", 
-//  "nickname": "THE PITBULL", 
-//  "record": "31-20-0 (2 NC)" 
+
+
 const addFighters = async () => {
     console.log('function to update dob started')
     for (let i = 0; i < fighters.length; i++) {

@@ -5,7 +5,6 @@ import App from './App-container';
 
 const Root = ({ store }) => 
 {
-    ////debugger;
     
     return (
         <Provider store={store} >

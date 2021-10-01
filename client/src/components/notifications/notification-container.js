@@ -3,7 +3,6 @@ import Notifications from './notifications';
 import { connect } from 'react-redux';
 
 const mstp = (state, ownProps) => {
-    console.log(state);
     return {
 
         leagueId: ownProps.match.params.leagueId,
@@ -14,7 +13,7 @@ const mstp = (state, ownProps) => {
 
 const mdtp = dispatch => ({
     getNotifications: (userId) => dispatch(fetchUserNotifs(userId)),
-    respond: (userId, response, requestId) => dispatch(respondToJoinRequest(userId, response, requestId))
+    respond: (userId, response, requestId, leagueId) => dispatch(respondToJoinRequest(userId, response, requestId, leagueId))
 })
 
 export default connect(mstp, mdtp)(Notifications);

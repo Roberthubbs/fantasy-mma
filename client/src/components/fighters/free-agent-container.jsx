@@ -5,7 +5,6 @@ import FreeAgents from './free-agents';
 import { connect } from 'react-redux';
 
 const mstp = (state, ownProps) => {
-    console.log(state);
     return {
         fighters: Object.values(state.entities.fighters),
         leagueId: ownProps.match.params.leagueId,

@@ -65,7 +65,7 @@ export default class FreeAgents extends React.Component {
                 </div>
                 <div className='all-fighters-grid'>{this.state.fighters.map((fighter, i) => (
 
-                <div>
+                <div id='fa-fighters-individual'>
                         <Fighter
                             key={i}
                             firstName={fighter.firstName}
@@ -88,7 +88,7 @@ export default class FreeAgents extends React.Component {
                         : 
                         <div>
                         <input type="text" value={this.state.coast} onChange={this.bidChange}/>
-                        <button onClick={(() => this.props.addFreeAgent(fighter.id, this.props.leagueId, this.props.teamId, this.state.cost).then(this.props.history.push(`/league-auction/${this.props.leagueId}`)))}>
+                        <button onClick={(() => this.props.addFreeAgent(fighter.id, this.props.leagueId, this.props.teamId, this.state.cost).then(res => this.props.history.push(`/league-auction/${this.props.leagueId}`)))}>
                         
                         
                     Bid

@@ -1,0 +1,10 @@
+#fa-fighters-individual{
+    border: 1px solid rgb(233, 154, 7, .9);
+    margin-bottom: 0px;
+    padding: 8px;
+    background-color: rgba(248, 216, 158, 0.9);
+    border-top-left-radius: 10px;
+    border-top-right-radius:10px;
+    color: rgba(31, 123, 228, 0.9);
+    margin: 10px;
+}

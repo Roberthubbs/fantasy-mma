@@ -22,6 +22,7 @@ const Notifications = (props) => {
     }
    
     if (notifications.length){
+        console.log("notifications: ", notifications)
         return (
             <div className='notifications'>
                 <span className='notif-header-span'>
@@ -31,10 +32,11 @@ const Notifications = (props) => {
                     <div class='league-request-noti-view'>
                         {notif.type == 1 ? (<p>{notif.sendername} would like to join your league</p>) : null}
                         <p>{notif.requestMessage}</p>
+                        {console.log('league id: ', notif.leagueid)}
                         {notif.responded ? <p><FontAwesomeIcon icon={faCheckCircle} /> Responded</p> : (
                             <span>
-                                <button onClick={() => props.respond(notif.senderId, 1, notif.joinLeagueRequestId, props.leagueId).then(setSearch(false)).then(() => getNoti())}>Accept</button>
-                                <button onClick={() => props.respond(notif.senderId, 2, notif.joinLeagueRequestId, props.leagueId).then(setSearch(false)).then(() => getNoti())}>Decline</button>
+                                <button onClick={() => props.respond(notif.senderid, 1, notif.joinLeagueRequestId, notif.leagueid).then(setSearch(false)).then(() => getNoti())}>Accept</button>
+                                <button onClick={() => props.respond(notif.senderid, 2, notif.joinLeagueRequestId, notif.leagueid).then(setSearch(false)).then(() => getNoti())}>Decline</button>
                             </span>)}
                     </div>
                 ))}

@@ -7,7 +7,6 @@ const { Op } = require("sequelize");
 router.post('/create-league', async(req, res) => {
     let { leagueName, teamId, maxPlayerCount, leagueStartDate, leagueEndDate, eventTotal } = req.body;
     console.log(req.body);
-    ////debugger;
     if (leagueName  && maxPlayerCount && leagueStartDate && leagueEndDate && teamId){
         try {
             let leagueCreate = await League.create({ leagueIdString: leagueName, teamId: teamId, playerTotal: maxPlayerCount, leagueStartDate: leagueStartDate, leagueEndDate: leagueEndDate, eventTotal: eventTotal  });
@@ -24,7 +23,6 @@ router.post('/create-league', async(req, res) => {
 
 router.post('/league-auction/:leagueId', async(req,res) => {
     let { leagueId } = req.params;
-    debugger;
     try{
         let currAuction = await LeagueAuction.getCurrentAuction(leagueId)//findAll({ where: { leagueId: leagueId } });
         res.status(200).json(currAuction);
@@ -36,7 +34,6 @@ router.post('/league-auction/:leagueId', async(req,res) => {
 
 router.get(`/league-auction/:userId&leagueName=:leagueName`, async(req, res) => {
     let { userId, leagueName} = req.params;
-    //debugger;
     try {
         let league = await UserLeague.findOne({ where: { leagueName: leagueName, teamId: userId}});
         res.status(200).json(league);
@@ -64,14 +61,12 @@ router.post(`/join-league`, async(req,res) => {
     //             responded: DataTypes.BOOLEAN
     try {
         let league = await JoinLeagueRequest.create({ requesterId: userId, leagueOwnerId: adminId, leagueNameString: leagueName, waitingApproval: true, requestMessage: requestMessage});
-        debugger;
         let notification = await Notification.create({ type: 1, typeString: 'LeagueJoinRequest', senderId: userId, receiverId: adminId, seen: false, responded: false, joinLeagueRequestId: league.dataValues.id, requestId: league.dataValues.id });
     } catch(error) {
         res.status(400).send(error)
     }
 })
 router.post(`/add-current-league`, async(req,res) => {
-    debugger;
     let {teamId, leagueId} = req.body;
     let storedLeague = await currentLeague.findOne({where: {teamId: teamId}});
     if (storedLeague){
@@ -97,7 +92,6 @@ router.get(`/get-current-league/:teamId`, async(req, res) => {
     let { teamId } = req.params;
 
     let storedLeague = await currentLeague.findOne({ where: { teamId: teamId } });
-    debugger;
     if (storedLeague){
         try {
             res.status(200).json(storedLeague);
@@ -108,7 +102,6 @@ router.get(`/get-current-league/:teamId`, async(req, res) => {
 });
 
 router.get(`/league-home-players/:leagueId`, async(req, res) => {
-    debugger;
     let { leagueId } = req.params;
     console.log(leagueId);
     try {
@@ -122,10 +115,8 @@ router.get(`/league-home-players/:leagueId`, async(req, res) => {
 
 router.get(`/user/leagues/:userId`, async(req, res) => {
     let { userId } = req.params;
-    debugger;
     try {
         let leagues = await UserLeague.findAll({where: { teamId: userId}});
-        debugger;
 
         res.status(200).json(leagues);
     } catch (error){

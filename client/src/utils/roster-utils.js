@@ -9,3 +9,10 @@ export const yourRoster = async (leagueId, playerId) => {
         headers: allHeaders
     })
 }
+
+export const recentFights = async() => {
+    return await axios.request('/recent-fights', {
+        method: 'get',
+        headers: allHeaders
+    })
+};

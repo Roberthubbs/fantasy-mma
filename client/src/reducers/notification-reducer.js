@@ -5,7 +5,6 @@ const notificationReducer = (state = {}, action) => {
 
     switch (action.type) {
         case RECEIVE_NOTIFICATIONS:
-            //debugger;
             return merge({}, state, action.data);
         default:
             return state;

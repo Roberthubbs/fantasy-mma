@@ -2,7 +2,6 @@ import { connect } from 'react-redux';
 import JoinLeagueRequest from './join-league';
 import {slr} from '../../actions/league-actions';
 const mstp = (state, ownProps) => {
-    console.log(state);
     return {
 
         userId: state.session.id

@@ -8,8 +8,6 @@ const addFighters = () => {
     fs.createReadStream('./csv-doc.csv')
         .pipe(csv())
         .on('data', async (row) => {
-            console.log(row);
-            //   debugger;
             let wins = ''
             let losses = '';
             let seenDash = false
@@ -45,14 +43,11 @@ const addFighters = () => {
                 nextOpponent: row.OPPONENT,
                 lastWeight: row.WEIGHTCLASS
             }
-            console.log(fighterObject);
 
           
             try {
                 let fighter = await Fighter.create(fighterObject)
-                console.log(fighter)
             } catch (error) {
-                console.log(error)
             }
         })
         .on('end', () => {

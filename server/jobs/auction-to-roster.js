@@ -31,8 +31,7 @@ const transitionToRoster = async()  => {
         let leagueId = await league.id
        // console.log(leagueId);
         let currAuction = await LeagueAuction.getCurrentAuction(leagueId, 'roster');
-       currAuction = JSON.parse(currAuction);
-        debugger;
+        currAuction = JSON.parse(currAuction);
        // console.log(currAuction[1], 'err');
         currAuction.map(async (bid) => {
             try {
@@ -45,7 +44,9 @@ const transitionToRoster = async()  => {
                     { waiverLeft: waiverLeft - bid.bidCost },
                     { where: { id: bid.teamId } }
                 );
-                let deleteFromAuction = await LeagueAuction.destroy({ where: { id: bid.bidId } })
+                //let deleteFromAuction = await LeagueAuction.destroy({ where: { id: bid.bidId } })
+                let deleteFromAuction = await LeagueAuction.destroy({ where: { fighterId: bid.fighterId, leagueId: leagueId} })
+
                 if (bid.replacementFighterId){
                     let deleteRFLF = await LeagueFighter.destroy({ where: { teamId: teamId, fighterId: bid.replacementFighterId, leagueId: leagueId } });
                     let deleteRFR = await Roster.destroy({ where: { teamId: teamId, fighterId: bid.replacementFighterId, leagueId: leagueId } });

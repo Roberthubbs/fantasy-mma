@@ -39,7 +39,6 @@ module.exports = (sequelize, DataTypes) => {
         INNER JOIN "JoinLeagueRequests" on "JoinLeagueRequests"."id" = "Notifications"."requestId"
         where "Notifications"."receiverId" = ${userId}
     `, {raw: true});
-    debugger;
     return notifications[0];
   }
   return Notification;

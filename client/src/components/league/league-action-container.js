@@ -4,7 +4,6 @@ import LeagueAuction from './league-auction';
 import { connect } from 'react-redux';
 
 const mstp = (state, ownProps) => {
-    console.log(state);
     return {
         
         leagueId: ownProps.match.params.leagueId,

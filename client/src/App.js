@@ -20,6 +20,7 @@ import YourRoster from './components/roster/your-roster-container';
 import { AuthRoute } from './utils/route-util';
 import StoredLeague from './components/league/stored-league-container';
 import axios from 'axios';
+import RecentFights from './components/fights/recent-fights-container';
 const allHeaders = {
   "Access-Control-Allow-Origin": "*"
 };
@@ -55,11 +56,9 @@ function App(props) {
   function forceRefresh(val){
     refreshed(!refresh)
   }
-  console.log('app props', props);
   getStoredLeague(props.user).then((res) => {
     setCurrLeague(res.data.leagueId)
   })
-  console.log('state league id global', currLeagueId)
   return (
     <div className="App">
       
@@ -90,6 +89,7 @@ function App(props) {
 
           <div className='body-div'>
           <Switch>
+            <Route exact path='/' component={RecentFights} /> 
             <Route path='/all' component={Fighters} /> 
             <Route path='/news-feed' component={NewsFeed} /> 
             <Route path='/free-agents/:leagueId' component={FreeAgents} />
